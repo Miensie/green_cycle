@@ -18,35 +18,35 @@ const ProductList = ({ products }) => {
       id: 1,
       name: "Biogas",
       description: "Methane-rich gas produced from organic waste through anaerobic digestion. Used for clean cooking, electricity generation, and heating. A sustainable alternative to traditional fuels that reduces greenhouse gas emissions and promotes energy independence.",
-      image: "public/assets/WhatsApp Image 2025-09-01 à 03.30.34_80485baa.jpg",
+      image: "assets/WhatsApp Image 2025-09-01 à 03.30.34_80485baa.jpg",
       price: "Biofuels"
     },
     {
       id: 2,
       name: "Briquettes",
       description: "Solid biofuel manufactured from compressed organic residues and agricultural waste. Provides a smokeless, efficient, and eco-friendly alternative to charcoal and firewood. Ideal for cooking and heating with higher energy efficiency and lower environmental impact.",
-      image: "public/assets/WhatsApp Image 2025-09-05 à 04.57.08_babcc4f4.jpg",
+      image: "assets/WhatsApp Image 2025-09-05 à 04.57.08_babcc4f4.jpg",
       price: "Biofuels"
     },
     {
       id: 3,
       name: "Future Energy Solutions",
       description: "GreenCycle Liberia is committed to expanding into innovative waste-to-energy technologies. Our future initiatives include advanced biogas systems, solar integration, and biofuel refinement to ensure sustainable energy security and environmental protection for communities.",
-      image: "public/assets/WhatsApp Image 2025-09-05 à 17.13.07_b9caf33d.jpg",
+      image: "assets/WhatsApp Image 2025-09-05 à 17.13.07_b9caf33d.jpg",
       price: "Innovative Energy"
     },
     {
       id: 4,
       name: "Compost Fertilizer",
       description: "High-quality organic compost produced from biodegradable waste through controlled decomposition. Enriches soil fertility, improves water retention, and boosts agricultural yields. Reduces dependence on chemical fertilizers while restoring degraded farmland and promoting sustainable agriculture.",
-      image: "public/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg",
+      image: "assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg",
       price: "Organic Fertilizers"
     },
     {
       id: 5,
       name: "Recycled Plastic Products",
       description: "We transform plastic waste into valuable products through advanced recycling processes. Our range includes durable construction materials (plastic lumber, tiles), household items, furniture, and innovative landscaping products. Helps reduce plastic pollution while creating economic opportunities.",
-      image: "public/assets/WhatsApp Image 2025-09-05 à 04.59.35_2090401d.jpg",
+      image: "assets/WhatsApp Image 2025-09-05 à 04.59.35_2090401d.jpg",
       price: "Recycled Products"
     }
   ];

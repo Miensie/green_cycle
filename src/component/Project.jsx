@@ -45,7 +45,7 @@ export default function ProfileFrame({ imageUrl, name, title }) {
   const theme = useTheme();
 
   // Image par défaut si aucune n'est fournie
-  const defaultImage = 'public/assets/WhatsApp Image 2025-09-05 à 04.57.08_a3700c07.jpg';
+  const defaultImage = 'assets/WhatsApp Image 2025-09-05 à 04.57.08_a3700c07.jpg';
   
   return (
     <Box 

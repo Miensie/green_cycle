@@ -256,7 +256,7 @@ function ScrollBottom({ children, showBottomButton }) {
                   flexDirection:{ xs:'column',md:'row'}}}>
                 <Avatar
                    alt='Logo' 
-                   src="public/assets/Capture d'écran 2025-09-17 091439.png"
+                   src="assets/Capture d'écran 2025-09-17 091439.png"
                     sx={{ height: { xs: '60px', md: '80px' }, width: { xs: '60px', md: '80px' } }}/>
                 <Typography 
                   variant='h4'
@@ -346,8 +346,8 @@ function ScrollBottom({ children, showBottomButton }) {
           opacity: isVideoLoaded ? 1 : 0,
         }}
       >
-        <source src="public/assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/mp4" />
-        <source src="public/assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/webm" />
+        <source src="assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/mp4" />
+        <source src="assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/webm" />
       </Box>
 
       {/* Overlay coloré pour améliorer la lisibilité */}

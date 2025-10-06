@@ -32,7 +32,7 @@ const StatisticsGrid = () => {
       title: "Compassion",
       description: "We work towards building awareness and boosting team spirit.",
       icon: <Diversity3Icon sx={{ fontSize: 80 }} />,
-      bgImage: "public/assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
+      bgImage: "assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
       overlayColor: alpha('#0a2e0a', 0.85),
       iconColor: "#7fe261"
     },
@@ -40,7 +40,7 @@ const StatisticsGrid = () => {
       title: "Respect",
       description: "We maintain mutual relationships with our clients with respect and integrity.",
       icon: <SwapHorizIcon sx={{ fontSize: 80 }} />,
-      bgImage: "public/assets/3a98cf724a37d7927141330da7472bed.jpg",
+      bgImage: "assets/3a98cf724a37d7927141330da7472bed.jpg",
       overlayColor: alpha('#1a5a1a', 0.85),
       iconColor: "#7fe261"
     },
@@ -48,7 +48,7 @@ const StatisticsGrid = () => {
       title: "Being positive",
       description: "We aim at starting and ending the day on a positive note.",
       icon: <ThumbUpAltIcon sx={{ fontSize: 80 }} />,
-      bgImage: "public/assets/542203501_122106919454992913_3914236434073073466_n.jpg",
+      bgImage: "assets/542203501_122106919454992913_3914236434073073466_n.jpg",
       overlayColor: alpha('#0a2e0a', 0.85),
       iconColor: "#7fe261"
     },
@@ -56,7 +56,7 @@ const StatisticsGrid = () => {
       title: "Working together",
       description: "We grow by respecting and working together in harmony.",
       icon: <Diversity3Icon sx={{ fontSize: 80 }} />,
-      bgImage: "public/assets/542723233_122106111518992913_6057981429094286876_n.jpg",
+      bgImage: "assets/542723233_122106111518992913_6057981429094286876_n.jpg",
       overlayColor: alpha('#1a5a1a', 0.85),
       iconColor: "#7fe261"
     }
