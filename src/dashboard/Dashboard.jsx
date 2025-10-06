@@ -21,9 +21,9 @@ export default function Dashboard() {
          <Service2 mt={20}/>
          <Choose1/>
          <Choose3/>
-        <Service1/>
+         <Service1/>
          <Present/>
-      <Footer1/>
+         <Footer1/>
         
     </Box>
   )
