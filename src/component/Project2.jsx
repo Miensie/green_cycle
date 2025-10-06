@@ -45,7 +45,7 @@ export default function ProfileFrame({ imageUrl, name, title }) {
   const theme = useTheme();
 
   // Image par défaut si aucune n'est fournie
-  const defaultImage = 'src/assets/d1ea2c2e61f53249b691e1dc87ca88bb.jpg';
+  const defaultImage = 'public/assets/d1ea2c2e61f53249b691e1dc87ca88bb.jpg';
   
   return (
     <Box 

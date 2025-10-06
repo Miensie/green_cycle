@@ -124,7 +124,7 @@ const Apropos = () => {
                 zIndex: 1
               }}>
                 <img 
-                  src="src/assets/545033648_122108511362992913_5975337630202281550_n.jpg" 
+                  src="public/assets/545033648_122108511362992913_5975337630202281550_n.jpg" 
                   alt="greenc" 
                   style={{ 
                     width: '500px', 

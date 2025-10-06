@@ -32,7 +32,7 @@ const StatisticsGrid = () => {
       title: "Compassion",
       description: "We work towards building awareness and boosting team spirit.",
       icon: <Diversity3Icon sx={{ fontSize: 80 }} />,
-      bgImage: "src/assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
+      bgImage: "public/assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
       overlayColor: alpha('#0a2e0a', 0.85),
       iconColor: "#7fe261"
     },

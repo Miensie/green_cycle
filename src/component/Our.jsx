@@ -41,27 +41,27 @@ const CarouselButton = styled(IconButton)(({ theme }) => ({
 // Données pour le carrousel
 const carouselData = [
   {
-    imageSrc: 'src/assets/6d15ecacd2d4f4482668cfdec891ca99.jpg',
+    imageSrc: 'public/assets/6d15ecacd2d4f4482668cfdec891ca99.jpg',
     title: 'Turning Waste into Value !',
     subtitle: 'We transform everyday waste into useful and innovative products that benefit both people and the planet.'
   },
   {
-    imageSrc: 'src/assets/69aa1d88b60ce3858557a7e5a7581ad2.jpg',
+    imageSrc: 'public/assets/69aa1d88b60ce3858557a7e5a7581ad2.jpg',
     title: 'For a Cleaner Tomorrow',
     subtitle: 'Our mission is to reduce pollution and create sustainable solutions for healthier communities in Liberia and beyond.'
   },
   {
-    imageSrc: 'src/assets/542723233_122106111518992913_6057981429094286876_n.jpg',
+    imageSrc: 'spublic/assets/542723233_122106111518992913_6057981429094286876_n.jpg',
     title: 'Innovation Through Recycling',
     subtitle: 'We harness creativity and technology to give waste a second life and drive the circular economy forward.'
   },
     {
-    imageSrc: 'src/assets/550097351_122112349808992913_480860411663089177_n.jpg',
+    imageSrc: 'public/assets/550097351_122112349808992913_480860411663089177_n.jpg',
     title: 'Sustainability at the Core',
     subtitle: 'Every action we take is guided by our commitment to protect the environment and promote responsible resource use.'
   },
     {
-    imageSrc: 'src/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg',
+    imageSrc: 'public/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg',
     title: 'Empowering Communities, Protecting Nature',
     subtitle: 'By working with local communities, we create jobs, raise awareness, and build a greener future together.'
   }

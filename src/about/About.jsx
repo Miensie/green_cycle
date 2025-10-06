@@ -303,7 +303,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("src/assets/545033648_122108511362992913_5975337630202281550_n.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("public/assets/545033648_122108511362992913_5975337630202281550_n.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

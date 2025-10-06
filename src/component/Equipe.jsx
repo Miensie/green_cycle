@@ -9,14 +9,14 @@ const people = [
     description2:'Founder and CEO of the Universal Standard School of Health Sciences at the Fish Market, Sinkor. He has over 20 years of experience in Administration.',
     description3:'A well-seasoned administrator, educator, and accountant.',
     imageUrl:
-      'src/assets/WhatsApp Image 2025-09-06 à 09.07.51_48b1f69c.jpg',
+      'public/assets/WhatsApp Image 2025-09-06 à 09.07.51_48b1f69c.jpg',
   },
   {
     name: 'Oscar Bush Seth',
     role: 'Co-chairman board of directors',
     description1:'Mr. Seth is a seasoned professional in Insurance and Risk Management, with extensive expertise in Compliance and Claims. As a strategic leader, he currently holds the position of Managing Director and CEO at Excellent Insurance Brokerage LLC.',
     imageUrl:
-      'src/assets/WhatsApp Image 2025-09-06 à 09.09.44_20ee9fd8.jpg',
+      'public/assets/WhatsApp Image 2025-09-06 à 09.09.44_20ee9fd8.jpg',
   },
 
   {
@@ -25,7 +25,7 @@ const people = [
     description1:'Gami Bi Ta Innocent holds a Bachelor’s in Earth Sciences and a Master’s in Geomaterials and Habitat Technology from the Université Félix Houphoüt Boigny de Cocody, Abidjan. Furthermore, he holds a Master in Process and Bioprocess Engineering from the Université Sorbonne Paris Nord, and another Master in Waste Valorisation from the Institute National Polytechnique Houphoüt Boigny in Yamoussoukro.',
     description2:'Passionate about sustainability and innovation, Innocent brings his expertise to transform waste into valuable resources and drive green solutions for a better future at GreenCycle Liberia, INC.',
     imageUrl:
-      'src/assets/WhatsApp Image 2025-09-06 à 09.10.10_48056e95.jpg',
+      'public/assets/WhatsApp Image 2025-09-06 à 09.10.10_48056e95.jpg',
   },
 
   {
@@ -35,7 +35,7 @@ const people = [
     description2:'During his time at TNIMA, he gained invaluable real-world experience through internships at notable institutions such as the Monrovia Free Port of Liberia and the National Public Health Institute of Liberia (NPHIL). These placements deepened his resolve to work in environmental chemistry and toxicology, reinforcing both his academic and professional aspirations.Passionate about sustainability and innovation, Innocent brings his expertise to transform waste into valuable resources and drive green solutions for a better future at GreenCycle Liberia, INC.',
     descriptyion3:'Transitioning seamlessly from education into practice, he began his career as a classroom teacher at Joseph Dweh Doeyan Academy (JDDA), where he did not only share knowledge but also inspired young minds. Subsequently, he expanded his impact by joining Mobile Waste Solution as a sales agent, promoting responsible waste management through the Mobile Waste Solution App—bridging environmental education with community engagement and technological innovation.',
     imageUrl:
-      'src/assets/WhatsApp Image 2025-09-06 à 09.11.33_2696b6a2.jpg',
+      'public/assets/WhatsApp Image 2025-09-06 à 09.11.33_2696b6a2.jpg',
   },
 
   
