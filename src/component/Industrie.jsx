@@ -14,7 +14,7 @@ const IndustriesWeServe = () => {
 
   const industries = [
     {
-      name: "  Energy & Biofuels services ",
+      name: "Energy & Biofuels services",
       image: "/assets/a41730a455051f727fd1915a1a91128e.jpg" // Remplacez par votre image
     },
     {
