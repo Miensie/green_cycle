@@ -66,6 +66,20 @@ const people = [
     description3:'Transitioning seamlessly from education into practice, he began his career as a classroom teacher at Joseph Dweh Doeyan Academy (JDDA), where he did not only share knowledge but also inspired young minds. Subsequently, he expanded his impact by joining Mobile Waste Solution as a sales agent, promoting responsible waste management through the Mobile Waste Solution App—bridging environmental education with community engagement and technological innovation.',
     imageUrl: '/assets/WhatsApp Image 2025-09-06 à 09.11.33_2696b6a2.jpg',
   },
+  {
+    name: 'Lucy B. Mccrownsey',
+    role: 'Operations & Logistics Supervisor',
+    description1: 'Mrs. Mccrownsey brings precision, leadership, and efficiency to GreenCycle Liberia’s daily operations. Currently a candidate for an Associate of Arts in School Administration at LICOSIESS, she combines organizational insight with strong coordination skills — ensuring that every collection route, transport schedule, and team effort runs seamlessly. Her commitment to structure and excellence makes her an essential pillar of our operational success.',
+    imageUrl: '/assets/Image1.jpg'
+  },
+  {
+    name: 'Urica Hajah Wennah',
+    role: 'Community Engagement & Education Officer',
+    description1:'Ms. Wennah is passionate about creating lasting social impact through education and community engagement. Currently pursuing a Bachelor of Science in Public Health at the University of Liberia, she brings both academic knowledge and grassroots experience to her role at GreenCycle Liberia INC.',
+    description2: 'Driven by her commitment to youth empowerment, Urica actively educates teenagers on the dangers of early childbearing and drug abuse. Her dedication has earned her certifications in Teaching and “Say No to Drugs”, strengthening her ability to inspire and lead change within communities.',
+    description3:'Recognized for her strong communication skills, attentive listening, and thorough research abilities, she approaches her work with empathy and purpose. Beyond her professional role, Urica finds fulfillment in reading and writing — channels through which she continues to share knowledge and advocate for a healthier, more informed generation.',
+    imageUrl:'/assets/Image2.jpg'
+  }
 ];
 
 export default function LeadershipTeam() {
