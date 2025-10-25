@@ -1,117 +1,197 @@
-import { useState } from 'react';
-import { Box, Card, CardMedia, Typography, useTheme } from '@mui/material';
-import { styled } from '@mui/material/styles';
+'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Link,
+  Chip,
+  Paper
+} from '@mui/material';
+import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
+import CompostIcon from '@mui/icons-material/Compost';
+import EngineeringIcon from '@mui/icons-material/Engineering';  
 
-// Composant de cadre animé personnalisé
-const AnimatedProfileFrame = styled(Card)(({ theme }) => ({
-  position: 'relative',
-  maxWidth: 400,
-  margin: '0 auto',
-  borderRadius: theme.spacing(2),
-  overflow: 'visible',
-  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-  cursor: 'pointer',
-  boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-  '&:hover': {
-    transform: 'translateY(-10px) rotate(2deg)',
-    boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+const products = [
+  {
+    id: 1,
+    name: 'Energy Solutions',
+    href: '/action',
+    imageSrc: '/assets/WhatsApp Image 2025-10-08 à 01.00.06_9ce40b63.jpg',
+    imageAlt: "",
+    icon: <EnergySavingsLeafIcon sx={{display:'flex',
+                                     justifyContent:'center',
+                                     fontSize:'80px',
+                                     alignItems:'center',
+                                    position:'absolute',
+                                    left:'30%',
+                                    top:'-20%',
+                                    zIndex:'11',
+                                    color:'green'
+                                  }}/>
   },
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: -4,
-    left: -4,
-    right: -4,
-    bottom: -4,
-    background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main}, ${theme.palette.primary.light})`,
-    backgroundSize: '300% 300%',
-    borderRadius: theme.spacing(2.5),
-    zIndex: -1,
-    animation: 'gradientShift 3s ease infinite',
+  {
+    id: 2,
+    name: 'Composting Services',
+    href: '/action',
+    imageSrc: '/assets/WhatsApp Image 2025-10-08 à 01.01.07_a6c32420.jpg',
+    imageAlt: "",
+    icon: <CompostIcon sx={{display:'flex',
+                                     justifyContent:'center',
+                                     fontSize:'80px',
+                                     alignItems:'center',
+                                    position:'absolute',
+                                    left:'30%',
+                                    top:'-20%',
+                                    zIndex:'11',
+                                    color:'green'
+                        
+    }}/>
   },
-  '@keyframes gradientShift': {
-    '0%': { backgroundPosition: '0% 50%' },
-    '50%': { backgroundPosition: '100% 50%' },
-    '100%': { backgroundPosition: '0% 50%' },
+  {
+    id: 3,
+    name: 'Industrial Recycling',
+    href: '/action',
+    imageSrc: '/assets/WhatsApp Image 2025-10-08 à 00.58.10_499d008d.jpg',
+    imageAlt: "",
+     icon: <EngineeringIcon sx={{display:'flex',
+                                 justifyContent:'center',
+                                 fontSize:'80px',
+                                 alignItems:'center',
+                                 position:'absolute',
+                                 left:'30%',
+                                 top:'-20%',
+                                 zIndex:'11',
+                                 color:'green'
+                    
+     }}/>
   },
-}));
-
-// Bulle décorative animée
-
-
-// Composant principal
-export default function ProfileFrame({ imageUrl, name, title }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const theme = useTheme();
-
-  // Image par défaut si aucune n'est fournie
-  const defaultImage = 'assets/WhatsApp Image 2025-09-05 à 04.57.08_a3700c07.jpg';
   
+];
+
+const ProductGrid = () => {
   return (
-    <Box 
-      sx={{ 
-        position: 'relative', 
-        width: 'fit-content',
-        margin: '0 auto'
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Bulles décoratives qui apparaissent au survol */}
-      
-      <AnimatedProfileFrame>
-        <CardMedia
-          component="img"
-          image={imageUrl || defaultImage}
-          alt={name || "Photo de profil"}
-          sx={{ 
-            height: 500,
-            width: 350,
-            objectFit: 'cover',
-            borderRadius: theme.spacing(1.5),
-          }}
-        />
-        
-        {/* Infos qui apparaissent au survol */}
-        <Box
+    <Box sx={{ bgcolor: 'white', py: 8 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
+        {/* Titre */}
+        <Typography
+          variant="h3"
+          component="h2"
           sx={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            color: 'white',
-            padding: theme.spacing(2),
-            borderBottomLeftRadius: theme.spacing(1.5),
-            borderBottomRightRadius: theme.spacing(1.5),
-            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
-            opacity: isHovered ? 1 : 0,
-            transition: 'transform 0.3s ease, opacity 0.3s ease',
+            fontWeight: 'bold',
+            color: 'green',
+            mb: 10,
+            fontSize: { xs: '1.5rem', md: '2rem' }
           }}
         >
-          <Typography variant="h3" fontWeight="bold" color='green'>
-            {name || "Recovery"}
-          </Typography>
-          <Typography variant="h6">
-            {title || "We recover resources and energy from waste, turning discarded materials into valuable opportunities for innovation."}
-          </Typography>
-        </Box>
-      </AnimatedProfileFrame>
+         Projects
+        </Typography>
+
+        {/* Grille de produits */}
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item xs={12} sm={6} md={3} key={product.id}>
+              <Card
+                sx={{
+                  position: 'relative',
+                  borderRadius: 2,
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                 
+                }}
+              >
+                {/* Lien invisible couvrant toute la carte */}
+                <Link
+                  href={product.href}
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 1,
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                    }
+                  }}
+                />
+
+                {/* Image du produit */}
+                <CardMedia
+                  component="img"
+                  height="350"
+                  image={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="product-image"
+                  sx={{
+                    aspectRatio: '1/1',
+                    objectFit: 'cover',
+                    transition: 'opacity 0.3s ease-in-out',
+                    backgroundColor: 'grey.100'
+                  }}
+                />
+
+                {/* Contenu du produit */}
+                <CardContent sx={{ p: 2, position: 'relative', zIndex: 2 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <Box sx={{ flex: 1 }}>
+                      {/* Nom du produit */}
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                          fontWeight: '600',
+                          color: 'text.primary',
+                          fontSize: '0.95rem',
+                          mb: 0.5,
+                          textAlign:'center'
+                        }}
+                      >
+                        {product.name}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+               {/* icon */}
+                <Box sx={{
+                  display:'flex',
+                   position:'relative',
+                   zIndex:10,
+                   paddingBottom:'30px',
+                   marginBottom:'30px'
+
+                    }}>
+                    <Paper sx={{
+                      bgcolor:'background.paper',
+                      width:250,
+                      height:100,
+                      position:'absolute',
+                      top:'-50%',
+                      left:'15%',
+                      borderRadius:'16px'
+                      
+                      
+                        
+                        
+                      }}>
+                        {product.icon}
+                      </Paper>
+                    </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
-}
+};
 
-// Exemple d'utilisation:
-/*
-import ProfileFrame from './components/ProfileFrame';
-
-function App() {
-  return (
-    <ProfileFrame 
-      imageUrl="/chemin/vers/votre/photo.jpg" 
-      name="Jean Dupont" 
-      title="Développeur Full Stack"
-    />
-  );
-}
-*/
+export default ProductGrid;

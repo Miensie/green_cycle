@@ -1,117 +1,154 @@
-import { useState } from 'react';
-import { Box, Card, CardMedia, Typography, useTheme } from '@mui/material';
+import { Container, Grid, Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import{ Link as RouterLink} from 'react-router-dom';
 
-// Composant de cadre animé personnalisé
-const AnimatedProfileFrame = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({ theme }) => ({
+  height: '400px',
+  display: 'flex',
+  width: '100%',
+  maxWidth: '1200px',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'green',
+  borderRadius: '10px',
+  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
   position: 'relative',
-  maxWidth: 400,
-  margin: '0 auto',
-  borderRadius: theme.spacing(2),
-  overflow: 'visible',
-  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-  cursor: 'pointer',
-  boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-  '&:hover': {
-    transform: 'translateY(-10px) rotate(2deg)',
-    boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
-  },
+  overflow: 'hidden',
   '&::before': {
     content: '""',
     position: 'absolute',
-    top: -4,
-    left: -4,
-    right: -4,
-    bottom: -4,
-    background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main}, ${theme.palette.primary.light})`,
-    backgroundSize: '300% 300%',
-    borderRadius: theme.spacing(2.5),
-    zIndex: -1,
-    animation: 'gradientShift 3s ease infinite',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '4px',
+    background: 'linear-gradient(45deg, #4CAF50 0%, #8BC34A 100%)',
   },
-  '@keyframes gradientShift': {
-    '0%': { backgroundPosition: '0% 50%' },
-    '50%': { backgroundPosition: '100% 50%' },
-    '100%': { backgroundPosition: '0% 50%' },
+  [theme.breakpoints.down('md')]: {
+    height: '350px',
   },
+  [theme.breakpoints.down('sm')]: {
+    height: '300px',
+  }
 }));
 
-// Bulle décorative animée
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(3),
+  backgroundColor: '#9fe036ff',
+  color: 'white',
+  padding: '20px 40px',
+  borderRadius: '10px',
+  textTransform: 'none',
+  fontWeight: 'bold',
+  '&:hover': {
+    backgroundColor: '#2f332fff',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 12px rgba(76,175,80,0.3)',
+  },
+  transition: 'all 0.3s ease',
+  [theme.breakpoints.down('md')]: {
+    padding: '16px 32px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '12px 24px',
+    fontSize: '0.9rem',
+  }
+}));
 
-
-// Composant principal
-export default function ProfileFrame({ imageUrl, name, title }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const theme = useTheme();
-
-  // Image par défaut si aucune n'est fournie
-  const defaultImage = 'assets/d1ea2c2e61f53249b691e1dc87ca88bb.jpg';
-  
+const CatalogueSection = () => {
   return (
-    <Box 
-      sx={{ 
-        position: 'relative', 
-        width: 'fit-content',
-        margin: '0 auto'
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Bulles décoratives qui apparaissent au survol */}
-      
-      <AnimatedProfileFrame>
-        <CardMedia
-          component="img"
-          image={imageUrl || defaultImage}
-          alt={name || "Photo de profil"}
-          sx={{ 
-            height: 500,
-            width: 350,
-            objectFit: 'cover',
-            borderRadius: theme.spacing(1.5),
-          }}
-        />
-        
-        {/* Infos qui apparaissent au survol */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            color: 'white',
-            padding: theme.spacing(2),
-            borderBottomLeftRadius: theme.spacing(1.5),
-            borderBottomRightRadius: theme.spacing(1.5),
-            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
-            opacity: isHovered ? 1 : 0,
-            transition: 'transform 0.3s ease, opacity 0.3s ease',
-          }}
-        >
-          <Typography variant="h3" fontWeight="bold" color='green'>
-            {name || "Reuse"}
-          </Typography>
-          <Typography variant="h6">
-            {title || "We give materials a second life by transforming discarded items into useful and durable products."}
-          </Typography>
-        </Box>
-      </AnimatedProfileFrame>
-    </Box>
+    <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Grid container spacing={4}>
+       <Box sx={{
+        display:'flex',
+        flexDirection:{ xs: 'column', md: 'row' },
+        gap:{ xs: '30px', md: '50px' },
+        width: '100%'
+       }}>
+        <Grid item xs={12} md={6} sx={{ width: '100%' }}>
+          <StyledCard>
+            <CardContent sx={{ 
+              textAlign: 'center', 
+              p: 4,
+              display:'flex',
+              flexDirection:{ xs: 'column', md: 'row' },
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap:{ xs: '30px', md: '200px' },
+              width: '100%',
+              height: '100%'
+            }}>
+              <Typography 
+                variant="h3" 
+                component="h1" 
+                gutterBottom
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: 'white',
+                  fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '3rem' },
+                  textAlign: { xs: 'center', md: 'left' }
+                }}
+              >
+                Long term projects
+              </Typography>
+              <StyledButton 
+              variant="contained"
+              component={RouterLink}
+              to="/ltprojects"
+              sx={{
+                width: { xs: '100%', sm: 'auto' },
+                maxWidth: { xs: '200px', sm: 'none' }
+              }}>
+                Discover
+              </StyledButton>
+            </CardContent>
+            
+          </StyledCard>
+        </Grid>
+     
+        <Grid item xs={12} md={6} sx={{ width: '100%' }}>
+          <StyledCard>
+            <CardContent sx={{ 
+              textAlign: 'center', 
+              p: 4,
+              display:'flex',
+              flexDirection:{ xs: 'column', md: 'row' },
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap:{ xs: '30px', md: '200px' },
+              width: '100%',
+              height: '100%'
+            }}>
+              <Typography 
+                variant="h3" 
+                component="h1" 
+                gutterBottom
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: 'white',
+                  fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '3rem' },
+                  textAlign: { xs: 'center', md: 'left' }
+                }}
+              >
+                Short term projects
+              </Typography>
+              <StyledButton 
+              variant="contained"
+              component={RouterLink}
+              to="/stproject"
+              sx={{
+                width: { xs: '100%', sm: 'auto' },
+                maxWidth: { xs: '200px', sm: 'none' }
+              }}>
+                Discover
+              </StyledButton>
+            </CardContent>
+          </StyledCard>
+        </Grid>
+       </Box> 
+      </Grid>
+    </Container>
   );
-}
+};
 
-// Exemple d'utilisation:
-/*
-import ProfileFrame from './components/ProfileFrame';
-
-function App() {
-  return (
-    <ProfileFrame 
-      imageUrl="/chemin/vers/votre/photo.jpg" 
-      name="Jean Dupont" 
-      title="Développeur Full Stack"
-    />
-  );
-}
-*/
+export default CatalogueSection;

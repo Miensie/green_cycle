@@ -1,466 +1,361 @@
-import React, { useState } from 'react';
-import {  useEffect } from 'react';
-import HomePage from '../component/HomePage.jsx'
-import Footer1 from '../component/Footer1.jsx'
+import React, { useState, useEffect } from 'react';
 import Contact2 from '../component/Contact2.jsx'
+import Contact3 from '../component/Contact3.jsx'
+import Footer1 from '../component/Footer1.jsx'
 import {
   Box,
   Container,
   Typography,
-  TextField,
   Button,
-  Grid,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  FormControlLabel,
-  Checkbox,
-  Link,
-  Paper,
-  Fab,
-  Zoom,
-   useScrollTrigger
+  AppBar,
+  Toolbar,
+  useTheme,
+  useMediaQuery,
+  alpha,
+  Fade,
+  Avatar,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+
+
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { KeyboardArrowDown } from '@mui/icons-material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {  Menu as MenuIcon } from '@mui/icons-material';
 
+const ServicesPresentation = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [scrolled, setScrolled] = useState(false);
+   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-const ContactContainer = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  minHeight: '100vh',
-  background: 'linear-gradient(135deg, #b5c9bbff 0%, #0f1312ff 100%)',
-  padding: theme.spacing(12, 3),
-  overflow: 'hidden',
-  isolation: 'isolate',
-}));
+  // Gestion du scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
 
-const DecorativeBlur = styled(Box)({
-  position: 'absolute',
-  top: '-320px',
-  left: '50%',
-  transform: 'translateX(-50%) rotate(30deg)',
-  width: '1000px',
-  height: '600px',
-  background: 'linear-gradient(135deg, #56d872ff 0%, #9089fc 100%)',
-  borderRadius: '50%',
-  filter: 'blur(100px)',
-  opacity: 0.2,
-  zIndex: -1,
-});
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-const FormPaper = styled(Paper)(({ theme }) => ({
-  background: 'rgba(255, 255, 255, 0.02)',
-  backdropFilter: 'blur(20px)',
-  border: '1px solid rgba(255, 255, 255, 0.1)',
-  borderRadius: 16,
-  padding: theme.spacing(5),
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-}));
+ // Menu items avec liens
+  const menuItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Products', path: '/activity' },
+    { label: 'Services', path: '/solutions' },
+    { label: 'Sustainability', path: '/soustainbility' },
+    { label: 'Newproject', path: '/action' },
+  ];
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
-  '& .MuiOutlinedInput-root': {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    '& fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.1)',
-    },
-    '&:hover fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.2)',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: theme.palette.primary.main,
-      boxShadow: `0 0 0 2px ${theme.palette.primary.main}20`,
-    },
-  },
-  '& .MuiInputLabel-root': {
-    color: 'white',
-    fontWeight: 500,
-  },
-  '& .MuiInputBase-input': {
-    color: 'white',
-    '&::placeholder': {
-      color: 'rgba(255, 255, 255, 0.4)',
-      opacity: 1,
-    },
-  },
-}));
-
-const PhoneContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-  border: '1px solid rgba(255, 255, 255, 0.1)',
-  borderRadius: theme.shape.borderRadius,
-  overflow: 'hidden',
-  transition: 'all 0.3s ease',
-  '&:focus-within': {
-    borderColor: theme.palette.primary.main,
-    boxShadow: `0 0 0 2px ${theme.palette.primary.main}20`,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-  },
-}));
-
-
-// Composant pour le bouton de retour en haut
-function ScrollTop({ children }) {
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
-
-  const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <Zoom in={trigger}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
+   // Navigation mobile
+    const MobileMenu = () => (
+      <Drawer
+        anchor="right"
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
         sx={{
-          position: 'fixed',
-          bottom: { xs: 80, md: 100 },
-          right: { xs: 20, md: 30 },
-          zIndex: 1000,
+          '& .MuiDrawer-paper': {
+            width: 280,
+            backgroundColor: scrolled ? 'white' : 'transparent',
+            boxShadow: 'none',
+          },
         }}
       >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
-
-// Composant pour le bouton de descente en bas
-function ScrollBottom({ children, showBottomButton }) {
-  const handleClick = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <Zoom in={showBottomButton}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{
-          position: 'fixed',
-          bottom: { xs: 20, md: 30 },
-          right: { xs: 20, md: 30 },
-          zIndex: 1000,
-        }}
-      >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
-
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    country: 'US',
-    phone: '',
-    message: '',
-    agreeToPolicy: false,
-  })
-  const [showBottomButton, setShowBottomButton] = useState(true);
-
-  
-
-  // Vérifier si on est proche du bas de la page
-    useEffect(() => {
-      const checkScrollPosition = () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.body.scrollHeight;
-        setShowBottomButton(scrollPosition < pageHeight - 200);
-      };
-  
-      window.addEventListener('scroll', checkScrollPosition);
-      checkScrollPosition();
-  
-      return () => window.removeEventListener('scroll', checkScrollPosition);
-    }, []);
-
-  const handleChange = (field) => (event) => {
-    setFormData({
-      ...formData,
-      [field]: event.target.value,
-    });
-  };
-
-  const handleCheckboxChange = (event) => {
-    setFormData({
-      ...formData,
-      agreeToPolicy: event.target.checked,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
-  return (
-  <Box>
-        <Box>
-           <HomePage />
-        </Box> 
-    <ContactContainer>
-      <DecorativeBlur />
-      <Contact2/>
-     
-      <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
-        {/* En-tête */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h2"
-            component="h1"
+        <List sx={{ mt: 2 }}>
+          {menuItems.map((item) => (
+            <ListItem 
+              key={item.label}
+              component="a"
+              href={item.path}
+              sx={{
+                textAlign: 'left',
+                color: scrolled ? 'text.primary' : 'white',
+                textDecoration: 'none',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                  opacity: 0.7,
+                },
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <ListItemText 
+                primary={item.label} 
+                sx={{
+                  '& .MuiListItemText-primary': {
+                    fontWeight: 600,
+                    color: scrolled ? 'text.primary' : 'white',
+                  },
+                }}
+              />
+            </ListItem>
+          ))}
+          <ListItem 
+            component="a"
+            href="/contact"
             sx={{
+              textAlign: 'left',
+              mt: 2,
+              backgroundColor: '#7fe261ff',
               color: 'white',
-              fontWeight: 600,
-              color:'green',
-              mb: 2,
-              fontSize: { xs: '2.5rem', sm: '3rem' },
-              letterSpacing: '-0.025em',
+              borderRadius: 1,
+              mx: 2,
+              textDecoration: 'none',
+              '&:hover': {
+                backgroundColor: '#6bd14aff',
+              },
             }}
+            onClick={() => setMobileMenuOpen(false)}
           >
-            Send us a message
-          </Typography>
-          
-          <Typography
-            variant="h6"
-            sx={{
-              color: 'rgba(255, 255, 255, 0.6)',
-              fontSize: '1.125rem',
-              lineHeight: 1.6,
-            }}
-          >
-            We'd love to hear from you! Send your comments to GreenCycle Liberia INC.
-          </Typography>
-        </Box>
+            <ListItemText 
+              primary="Contact Us" 
+              sx={{
+                '& .MuiListItemText-primary': {
+                  fontWeight: 600,
+                  textAlign: 'center',
+                },
+              }}
+            />
+          </ListItem>
+        </List>
+      </Drawer>
+    );
 
-        {/* Formulaire */}
-        <FormPaper>
-          <Box component="form" onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
-              {/* Prénom et Nom */}
-              <Grid item xs={12} sm={6}>
-                <StyledTextField
-                  fullWidth
-                  label="First name"
-                  value={formData.firstName}
-                  onChange={handleChange('firstName')}
-                  autoComplete="given-name"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <StyledTextField
-                  fullWidth
-                  label="Last name"
-                  value={formData.lastName}
-                  onChange={handleChange('lastName')}
-                  autoComplete="family-name"
-                />
-              </Grid>
-
-              {/* Société */}
-              <Grid item xs={12}>
-                <StyledTextField
-                  fullWidth
-                  label="Company"
-                  value={formData.company}
-                  onChange={handleChange('company')}
-                  autoComplete="organization"
-                />
-              </Grid>
-
-              {/* Email */}
-              <Grid item xs={12}>
-                <StyledTextField
-                  fullWidth
-                  label="Email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange('email')}
-                  autoComplete="email"
-                />
-              </Grid>
-
-              {/* Téléphone */}
-              <Grid item xs={12}>
-                <Typography
-                  variant="body2"
-                  sx={{ 
-                    color: 'white', 
-                    fontWeight: 500, 
-                    mb: 1,
-                    fontSize: '0.875rem'
-                  }}
-                >
-                  Phone number
-                </Typography>
-                <PhoneContainer>
-                  <FormControl sx={{ minWidth: 80 }}>
-                    <Select
-                      value={formData.country}
-                      onChange={handleChange('country')}
-                      displayEmpty
-                      IconComponent={KeyboardArrowDown}
-                      sx={{
-                        color: 'rgba(255, 255, 255, 0.6)',
-                        '.MuiOutlinedInput-notchedOutline': { border: 0 },
-                        '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': { border: 0 },
-                        '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': { border: 0 },
-                        '.MuiSvgIcon-root': { color: 'rgba(255, 255, 255, 0.4)' }
-                      }}
-                    >
-                      <MenuItem value="US">US</MenuItem>
-                      <MenuItem value="CA">CA</MenuItem>
-                      <MenuItem value="EU">EU</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <TextField
-                    fullWidth
-                    placeholder="123-456-7890"
-                    value={formData.phone}
-                    onChange={handleChange('phone')}
+  return (
+    <Box sx={{ position: 'relative' }}>
+     {/* Navbar Responsive */}
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: scrolled ? 'white' : 'transparent',
+          boxShadow: scrolled ? 1 : 'none',
+          transition: 'all 0.3s ease-in-out',
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
+            {/* Logo avec lien */}
+            <Box sx={{ display:'flex', 
+                flexDirection:'row'}}>
+                <Avatar
+                 alt='Logo' 
+                 src="/assets/Capture d'écran 2025-09-17 091439.png"
+                sx={{ 
+                   height: { xs: '35px', sm: '45px', md: '50px' }, 
+                   width: { xs: '35px', sm: '45px', md: '50px' } 
+                 }}/>
+                 <Typography 
+                   variant='h5'
+                   component='h1'
                     sx={{
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': { border: 0 },
-                        '&:hover fieldset': { border: 0 },
-                        '&.Mui-focused fieldset': { border: 0 },
+                     fontWeight:'bold', 
+                     color:'#6bd14aff',
+                     fontStyle:'italic',
+                     fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' },
+                     lineHeight: { xs: 1.2, sm: 1.3 }
+                   }}>
+                     GreenCycle <br/>
+                     Liberia INC.
+                 </Typography>
+             </Box>
+            {/* Menu Desktop */}
+            {!isMobile && (
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                {menuItems.map((item) => (
+                  <Button
+                    key={item.label}
+                    component="a"
+                    href={item.path}
+                    sx={{
+                      color: scrolled ? 'text.primary' : 'white',
+                      fontWeight: 600,
+                      fontSize: '0.9rem',
+                      textTransform: 'none',
+                      textDecoration: 'none',
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        opacity: 0.8,
                       },
-                      '& .MuiInputBase-input': {
-                        color: 'white',
-                        '&::placeholder': {
-                          color: 'rgba(255, 255, 255, 0.4)',
-                          opacity: 1,
-                        },
-                      },
+                      transition: 'all 0.3s ease',
                     }}
-                  />
-                </PhoneContainer>
-              </Grid>
-
-              {/* Message */}
-              <Grid item xs={12}>
-                <StyledTextField
-                  fullWidth
-                  label="Message"
-                  multiline
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange('message')}
-                  placeholder="Votre message..."
-                />
-              </Grid>
-
-              {/* Checkbox de consentement */}
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={formData.agreeToPolicy}
-                      onChange={handleCheckboxChange}
-                      sx={{
-                        color: 'rgba(255, 255, 255, 0.2)',
-                        '&.Mui-checked': {
-                          color: 'primary.main',
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <Typography sx={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.875rem' }}>
-                      By selecting this, you agree to our{' '}
-                      <Link href="#" sx={{ color: 'primary.light', fontWeight: 500 }}>
-                        privacy policy
-                      </Link>
-                      .
-                    </Typography>
-                  }
-                />
-              </Grid>
-
-              {/* Bouton de soumission */}
-              <Grid item xs={12}>
+                  >
+                    {item.label}
+                  </Button>
+                ))}
                 <Button
-                  type="submit"
-                  fullWidth
                   variant="contained"
-                  size="large"
+                  component="a"
+                  href="/contact"
                   sx={{
-                    mt: 2,
-                    py: 2,
-                    backgroundColor:'green',
-                    fontSize: '1rem',
-                    fontWeight: 500,
-                    borderRadius: 2,
-                    boxShadow: '0 2px 8px rgba(63, 81, 181, 0.3)',
+                    backgroundColor: '#7fe261ff',
+                    color: 'white',
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    px: 3,
+                    textDecoration: 'none',
                     '&:hover': {
-                      boxShadow: '0 4px 16px rgba(63, 81, 181, 0.4)',
-                      transform: 'translateY(-2px)',
+                      backgroundColor: '#6bd14aff',
                     },
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  Let's talk
+                  Contact Us
                 </Button>
-              </Grid>
-            </Grid>
-          </Box>
-        </FormPaper>
-      </Container>
-    </ContactContainer>
-    <Box sx={{marginTop:'50px'}}>
-      <Footer1/>
+              </Box>
+            )}
+
+            {/* Menu Mobile */}
+            {isMobile && (
+              <IconButton
+                sx={{
+                  color: scrolled ? 'text.primary' : 'white',
+                }}
+                onClick={() => setMobileMenuOpen(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+       <MobileMenu />
+
+      {/* Hero Section with Background Image */}
+      <Box
+        sx={{
+          position: 'relative',
+          minHeight: '10vh',
+          display: 'flex',
+          alignItems: 'center',
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg")', // Remplacez par votre image
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: alpha('#000000', 0.7), // Overlay sombre pour lisibilité
+            zIndex: 1,
+          }
+        }}
+      >
+
+        {/* Overlay coloré pour améliorer la lisibilité */}
+             <Box
+               sx={{
+                 position: 'absolute',
+                 top: 0,
+                 left: 0,
+                 width: '100%',
+                 height: '100%',
+                 background: `linear-gradient(
+                   135deg,
+                   ${alpha('#161716ff', 0.6)} 0%,
+                   ${alpha('#373a37ff', 0.4)} 50%,
+                   ${alpha('#0a2e0a', 0.6)} 100%
+                 )`,
+                 zIndex: 1,
+               }}
+             />
+
+        {/* Content */}
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ 
+              maxWidth: { xs: '100%', md: '60%' },
+              color: 'white'
+            }}>
+              {/* Main Title */}
+             <Typography 
+             variant="h2" component="h1" color='#a3eb4aff'
+              sx={{ fontWeight: 'bold',
+               
+                mb: 5 ,
+                mt:15}}>
+                  Contact Us 
+            </Typography>
+
+              {/* Description */}
+              <Typography
+                variant="h3"
+                component="p"
+                sx={{
+                  lineHeight: 1.6,
+                  fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
+                  mb: 4,
+                  textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
+                  maxWidth: '600px'
+                }}
+              >
+                Integrated Waste Recovery Center  Monrovia Project
+              </Typography>
+
+              {/* Call to Action */}
+            </Box>
+          </Fade>
+        </Container>
+
+        {/* Scroll Indicator */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 40,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            textAlign: 'center',
+            color: 'white',
+            zIndex: 2,
+          }}
+        >
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              mb: 2, 
+              opacity: 0.8,
+              textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+            }}
+          >
+            Scroll to explore
+          </Typography>
+          <Box
+            sx={{
+              width: 2,
+              height: 40,
+              backgroundColor: 'white',
+              margin: '0 auto',
+              borderRadius: 1,
+              animation: 'scrollBounce 2s infinite ease-in-out',
+              '@keyframes scrollBounce': {
+                '0%, 100%': { 
+                  transform: 'translateY(0)',
+                  opacity: 1
+                },
+                '50%': { 
+                  transform: 'translateY(-10px)',
+                  opacity: 0.7
+                },
+              },
+            }}
+          />
+        </Box>
+      </Box>
+      <Box sx={{marginTop:'20px'}}>
+      <Contact2/>
+      <Contact3/>
+      </Box>
+      <Box sx={{marginTop: '20px'}}>
+      <Footer1 />
+      </Box>
     </Box>
-
-     {/* Bouton de retour en haut */}
-      <ScrollTop>
-        <Fab
-          color="primary"
-          size="medium"
-          aria-label="scroll back to top"
-          sx={{
-            backgroundColor: 'green',
-            '&:hover': {
-              backgroundColor: 'darkgreen',
-            },
-            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-          }}
-        >
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-
-      {/* Bouton de descente en bas */}
-      <ScrollBottom showBottomButton={showBottomButton}>
-        <Fab
-          color="secondary"
-          size="medium"
-          aria-label="scroll to bottom"
-          sx={{
-            backgroundColor: '#41b156ff',
-            '&:hover': {
-              backgroundColor: '#2e7d32',
-            },
-            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-          }}
-        >
-          <KeyboardArrowDownIcon />
-        </Fab>
-      </ScrollBottom>
-      
-</Box> 
   );
-}
+};
+
+export default ServicesPresentation;

@@ -17,12 +17,14 @@ import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 const ContactInfo = () => {
   const contactData = {
     address: {
-      line1: "Broad Street, Centre de Monrovia",
-      line2: "1000 Monrovia, Liberia"
+      line1: " 72nd Boulevard, Roland Duo Estate",
+      line2: "Paynesville, Montserrado County, Liberia"
     },
     phones: [
-      "+231 77 123 456",
-      "+231 88 654 321"
+      "(+231) 88 83 78 250",
+      "(+231) 77 20 63 061",
+      "(+221) 77 11 48 115",
+      "(+225) 75 15 03 39",
     ],
     emails: [
       "greencycleliberia@gmail.com",
@@ -38,17 +40,17 @@ const ContactInfo = () => {
         backgroundColor: 'transparent',
         boxShadow: 'none',
         display:'flex',
-        marginLeft:'100px'
+        marginLeft: { xs: '0px', sm: '20px', md: '50px', lg: '100px' }
       }}
     >
-      <CardContent sx={{ pb: 2 }}>
+      <CardContent sx={{ pb: 2, width: '100%' }}>
         <Avatar
           sx={{
             bgcolor: avatarColor,
-            width: 80,
-            height: 80,
+            width: { xs: 60, sm: 70, md: 80 },
+            height: { xs: 60, sm: 70, md: 80 },
             mx: 'auto',
-            mb: 3
+            mb: { xs: 2, md: 3 }
           }}
         >
           {icon}
@@ -61,7 +63,7 @@ const ContactInfo = () => {
             mb: 2,
             color: '#333',
             letterSpacing: '0.1em',
-            fontSize: '1rem'
+            fontSize: { xs: '0.9rem', sm: '1rem' }
           }}
         >
           {title}
@@ -75,7 +77,7 @@ const ContactInfo = () => {
                 color="text.secondary"
                 sx={{ 
                   mb: 0.5,
-                  fontSize: '0.9rem',
+                  fontSize: { xs: '0.8rem', sm: '0.9rem' },
                   lineHeight: 1.4
                 }}
               >
@@ -86,7 +88,7 @@ const ContactInfo = () => {
             <Typography 
               variant="body2" 
               color="text.secondary"
-              sx={{ fontSize: '0.9rem' }}
+              sx={{ fontSize: { xs: '0.8rem', sm: '0.9rem' } }}
             >
               {content}
             </Typography>
@@ -97,45 +99,53 @@ const ContactInfo = () => {
   );
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+    <Box sx={{ 
+      py: { xs: 4, sm: 6, md: 8 }, 
+      backgroundColor: '#f8f9fa', 
+      minHeight: '100vh' 
+    }}>
       <Container maxWidth="lg">
         <Typography
-        variant="h2"
-            component="h1"
-            align='center'
-            sx={{
-              color: 'white',
-              fontWeight: 600,
-              color:'green',
-              mb: 2,
-              fontSize: { xs: '2.5rem', sm: '3rem' },
-              letterSpacing: '-0.025em',
-            }}>
-            Contact Us
+          variant="h2"
+          component="h1"
+          align='center'
+          sx={{
+            color: 'white',
+            fontWeight: 600,
+            color:'green',
+            mb: { xs: 3, md: 2 },
+            fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '3rem' },
+            letterSpacing: '-0.025em',
+          }}>
+          Contact Us
         </Typography>
+        
         {/* Section des informations de contact */}
-        <Grid container spacing={4} sx={{ mb: 6 }}>
-          <Grid item xs={12} md={4}>
+        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: { xs: 4, md: 6 } }}>
+          <Grid item xs={12} sm={6} md={4}>
             <ContactCard
-              icon={<AddLocationAltIcon sx={{ fontSize: 40, color: 'white' }} />}
+              icon={<AddLocationAltIcon sx={{ fontSize: { xs: 30, sm: 35, md: 40 }, color: 'white' }} />}
               title="ADDRESS"
               content={[contactData.address.line1, contactData.address.line2]}
               avatarColor="#8B4513"
             />
           </Grid>
           
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <ContactCard
-              icon={<LocalPhoneIcon sx={{ fontSize: 40, color: 'white' }} />}
+              icon={<LocalPhoneIcon sx={{ fontSize: { xs: 30, sm: 35, md: 40 }, color: 'white' }} />}
               title="PHONE"
               content={contactData.phones}
               avatarColor="#333333"
             />
           </Grid>
           
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={12} md={4} sx={{ 
+            display: 'flex', 
+            justifyContent: { xs: 'center', sm: 'flex-start', md: 'center' } 
+          }}>
             <ContactCard
-              icon={<MailOutlineIcon sx={{ fontSize: 40, color: 'white' }} />}
+              icon={<MailOutlineIcon sx={{ fontSize: { xs: 30, sm: 35, md: 40 }, color: 'white' }} />}
               title="E-MAIL"
               content={contactData.emails}
               avatarColor="#333333"
@@ -147,7 +157,7 @@ const ContactInfo = () => {
         <Paper 
           elevation={3}
           sx={{ 
-            height: 400,
+            height: { xs: 300, sm: 350, md: 400 },
             borderRadius: 2,
             overflow: 'hidden',
             position: 'relative'
@@ -173,14 +183,15 @@ const ContactInfo = () => {
             elevation={2}
             sx={{
               position: 'absolute',
-              top: 20,
-              left: 20,
-              p: 2,
+              top: { xs: 10, sm: 15, md: 20 },
+              left: { xs: 10, sm: 15, md: 20 },
+              right: { xs: 10, sm: 'auto' },
+              p: { xs: 1.5, sm: 2 },
               backgroundColor: 'rgba(255, 255, 255, 0.95)',
               backdropFilter: 'blur(5px)',
               borderRadius: 2,
-              minWidth: 280,
-              maxWidth: 320
+              minWidth: { xs: 'auto', sm: 250 },
+              maxWidth: { xs: 'none', sm: 280, md: 320 }
             }}
           >
             <Typography 
@@ -188,7 +199,8 @@ const ContactInfo = () => {
               sx={{ 
                 fontWeight: 'bold', 
                 mb: 1,
-                color: 'green'
+                color: 'green',
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
               }}
             >
               GreenCycle Liberia Inc.
@@ -196,15 +208,18 @@ const ContactInfo = () => {
             <Typography 
               variant="body2" 
               color="text.secondary" 
-              sx={{ mb: 1 }}
+              sx={{ 
+                mb: 1,
+                fontSize: { xs: '0.75rem', sm: '0.875rem' }
+              }}
             >
-              Broad Street, Centre de Monrovia
+             Paynesville, Montserrado County, Liberia
             </Typography>
             <Box sx={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: 1,
-              mb: 2 
+              mb: { xs: 1, sm: 2 } 
             }}>
               <Box
                 sx={{
@@ -214,9 +229,7 @@ const ContactInfo = () => {
                   bgcolor: '#4CAF50'
                 }}
               />
-              <Typography variant="caption" color="text.secondary">
-                4,5 ★★★★☆ 142 avis
-              </Typography>
+              
             </Box>
             <Button
               variant="text"
@@ -224,7 +237,7 @@ const ContactInfo = () => {
               sx={{
                 color: '#1976d2',
                 textTransform: 'none',
-                fontSize: '0.8rem',
+                fontSize: { xs: '0.7rem', sm: '0.8rem' },
                 p: 0
               }}
             >

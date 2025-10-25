@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       title: "Advanced Technical Expertise",
-      description: "Our team of experts brings over 15 years of experience in biogas solutions and integrated waste management systems."
+      description: "Our team of experts brings over 3 years of experience in biogas solutions and integrated waste management systems."
     },
     {
       title: "Sustainable Solutions",
@@ -99,11 +99,6 @@ const WhyChooseUs = () => {
                   boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                   transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
                   opacity: isVisible ? 1 : 0,
-                  transition: 'all 0.8s ease-out',
-                  '&:hover': {
-                    transform: isVisible ? 'translateY(-8px)' : 'translateY(50px)',
-                    boxShadow: '0 25px 50px rgba(0,0,0,0.15)'
-                  }
                 }}
               >
                 {/* Conteneur image avec effet rideau */}
@@ -115,7 +110,7 @@ const WhyChooseUs = () => {
                   {/* Image */}
                   <CardMedia
                     component="img"
-                    image="assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
+                    image="/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
                     alt="Pourquoi nous choisir"
                     sx={{
                       width: '100%',
@@ -163,19 +158,6 @@ const WhyChooseUs = () => {
                       zIndex: 1
                     }}
                   >
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        opacity: isVisible ? 0 : 1,
-                        transition: 'opacity 0.5s ease-out',
-                        fontSize: { xs: '1.5rem', md: '2rem' }
-                      }}
-                    >
-                      Découvrez notre expertise
-                    </Typography>
                   </Box>
                 </Box>
               </Card>
@@ -234,11 +216,6 @@ const WhyChooseUs = () => {
                         mb: 4,
                         p: 2,
                         borderRadius: 2,
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          backgroundColor: alpha('#4caf50', 0.05),
-                          transform: 'translateX(8px)'
-                        }
                       }}
                     >
                       {/* Icône */}

@@ -174,7 +174,7 @@ const GreenCycleQuote = () => {
             textShadow: '0 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          "We creating green jobs and economic opportunities for Liberian communities."
+          "We are creating green jobs and economic opportunities for Liberian communities."
         </TextFloat>
       </EcoBackground>
     </Container>

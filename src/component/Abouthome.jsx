@@ -44,27 +44,23 @@ const CompanyPresentation = () => {
               boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
             }}
           >
-            Founded in January 2025 in Monrovia, 
-            GreenCycle Liberia INC has quickly established itself 
-            as a flagship initiative dedicated to transforming solid 
-            waste challenges into sustainable economic opportunities.
-            Our innovative company focuses on comprehensive recycling, 
-            organic composting, and groundbreaking waste-to-value solutions,
-            building a cleaner city while generating green jobs, supporting 
-            local farmers with organic fertilizers, and producing clean biogas 
-            for energy. Powered by a dynamic, professional, and diverse team, 
-            GreenCycle Liberia brings together passionate experts from various 
-            backgrounds—environmental science, engineering, business development,
-            and community outreach—uniting their skills to deliver innovative 
-            solutions and local expertise. Our ambitious objectives aim to revolutionize
-            waste management in Liberia by creating a circular economy that transforms
-            environmental challenges into economic growth, while promising bright future 
-            perspectives for an ecological Liberia where waste becomes a valuable resource,
-            supporting agricultural development and providing clean energy solutions to communities
-            across the nation. Through our diversified services including comprehensive recycling,
-            compost production, biogas energy generation, waste-to-value innovation, and environmental 
-            consulting, we are committed to empowering Liberian communities while reducing carbon footprint 
-            and improving quality of life for all stakeholders.
+            Founded in May 2025 in Monrovia, GreenCycle Liberia INC is a flagship 
+            initiative dedicated to transforming Liberia’s solid waste challenges
+            into sustainable economic opportunities. Through recycling, composting, 
+            and innovative waste-to-value solutions, we are building a cleaner and 
+            more resilient nation while creating green jobs, supporting local farmers 
+            with organic fertilizers, and producing clean biogas for energy.
+            Powered by a dynamic and multidisciplinary team of passionate professionals 
+            in environmental science, engineering, business development, and community 
+            outreach, GreenCycle Liberia combines innovation and local expertise to deliver 
+            impactful solutions. Our goal is to revolutionize waste management in Liberia
+            by fostering a circular economy where waste becomes a valuable resource, 
+            driving economic growth and sustainable development.
+            Beyond waste management, our work embodies environmental stewardship,
+            community empowerment, and a firm commitment to Liberia’s long-term sustainability.
+            We believe that every discarded item holds potential—and through innovation and responsibility,
+            we are turning waste into a resource that benefits people, the planet, and future generations.
+
           </Typography>
         </Box>
       </Container>

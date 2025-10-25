@@ -43,7 +43,9 @@ const ServicesPresentation = () => {
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/activity' },
-    { label: 'Service', path: '/solutions' },
+    { label: 'Services', path: '/solutions' },
+    { label: 'Sustainability', path: '/soustainbility' },
+    { label: 'Newproject', path: '/action' },
   ];
 
    // Navigation mobile
@@ -134,15 +136,24 @@ const ServicesPresentation = () => {
           <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
             {/* Logo avec lien */}
             <Box sx={{ display:'flex', 
-                flexDirection:{ xs:'column',md:'row'}}}>
+                flexDirection:'row'}}>
                 <Avatar
                  alt='Logo' 
-                 src="assets/Capture d'écran 2025-09-17 091439.png"
-                 sx={{ height: { xs: '60px', md: '80px' }, width: { xs: '60px', md: '80px' } }}/>
+                 src="/assets/Capture d'écran 2025-09-17 091439.png"
+                sx={{ 
+                   height: { xs: '35px', sm: '45px', md: '50px' }, 
+                   width: { xs: '35px', sm: '45px', md: '50px' } 
+                 }}/>
                  <Typography 
-                   variant='h4'
+                   variant='h5'
                    component='h1'
-                    sx={{fontWeight:'bold', color:'#6bd14aff',fontStyle:'italic'}}>
+                     sx={{
+                     fontWeight:'bold', 
+                     color:'#6bd14aff',
+                     fontStyle:'italic',
+                     fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' },
+                     lineHeight: { xs: 1.2, sm: 1.3 }
+                   }}>
                      GreenCycle <br/>
                      Liberia INC.
                  </Typography>
@@ -217,7 +228,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -228,7 +239,7 @@ const ServicesPresentation = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: alpha('#000000', 0.4), // Overlay sombre pour lisibilité
+            backgroundColor: alpha('#000000', 0.7), // Overlay sombre pour lisibilité
             zIndex: 1,
           }
         }}

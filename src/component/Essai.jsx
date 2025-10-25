@@ -106,31 +106,31 @@ export default function Example() {
 
   const images = [
     {
-      src: "assets/71db5a24d7baa634796480a22954409d.jpg",
+      src: "/assets/71db5a24d7baa634796480a22954409d.jpg",
       hideOnMobile: true
     },
     {
-      src: "assets/6d31889ed473e7934403dbd7bba400a4.jpg",
+      src: "/assets/6d31889ed473e7934403dbd7bba400a4.jpg",
       hideOnMobile: false
     },
     {
-      src: "assets/956847c3d8900f1a6196797204cde506.jpg",
+      src: "/assets/956847c3d8900f1a6196797204cde506.jpg",
       hideOnMobile: false
     },
     {
-      src: "assets/6d15ecacd2d4f4482668cfdec891ca99.jpg",
+      src: "/assets/6d15ecacd2d4f4482668cfdec891ca99.jpg",
       hideOnMobile: false
     },
     {
-      src: "assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg",
+      src: "/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg",
       hideOnMobile: false
     },
     {
-      src: "assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
+      src: "/assets/ac05ad7ae6455f166732adfd3d0c1829.jpg",
       hideOnMobile: false
     },
     {
-      src: "assets/Capture d'écran 2025-09-17 091439.png",
+      src: "/assets/Capture d'écran 2025-09-17 091439.png",
       hideOnMobile: false
     }
   ];

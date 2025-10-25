@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import {Link as RouterLink} from 'react-router-dom';
 import {
   Box,
   Container,
@@ -81,7 +82,9 @@ const ImmersiveVideoPresentation = () => {
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/activity' },
-    { label: 'Service', path: '/solutions' },
+    { label: 'Services', path: '/solutions' },
+    { label: 'Sustainability', path: '/soustainbility' },
+    { label: 'Newproject', path: '/action' },
   ];
 
 
@@ -238,6 +241,8 @@ function ScrollBottom({ children, showBottomButton }) {
         minHeight: '100vh',
         overflow: 'hidden',
         background: 'linear-gradient(135deg, #0a2e0a 0%, #1a5a1a 100%)',
+        margin:0,
+        padding:0
       }}
     >
       {/* Navbar Responsive */}
@@ -249,19 +254,28 @@ function ScrollBottom({ children, showBottomButton }) {
           transition: 'all 0.3s ease-in-out',
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" >
           <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
             {/* Logo avec lien */}
            <Box sx={{ display:'flex', 
-                  flexDirection:{ xs:'column',md:'row'}}}>
+                  flexDirection:'row'}}>
                 <Avatar
                    alt='Logo' 
-                   src="assets/Capture d'écran 2025-09-17 091439.png"
-                    sx={{ height: { xs: '60px', md: '80px' }, width: { xs: '60px', md: '80px' } }}/>
+                   src="/assets/Capture d'écran 2025-09-17 091439.png"
+                    sx={{ 
+                   height: { xs: '35px', sm: '45px', md: '50px' }, 
+                   width: { xs: '35px', sm: '45px', md: '50px' } 
+                 }}/>
                 <Typography 
-                  variant='h4'
+                  variant='h5'
                   component='h1'
-                  sx={{fontWeight:'bold', color:'#6bd14aff',fontStyle:'italic'}}>
+                 sx={{
+                     fontWeight:'bold', 
+                     color:'#6bd14aff',
+                     fontStyle:'italic',
+                     fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' },
+                     lineHeight: { xs: 1.2, sm: 1.3 }
+                   }}>
                     GreenCycle <br/>
                     Liberia INC.
                 </Typography>
@@ -307,7 +321,7 @@ function ScrollBottom({ children, showBottomButton }) {
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  Contact Us
+                  ContactUs
                 </Button>
               </Box>
             )}
@@ -346,8 +360,8 @@ function ScrollBottom({ children, showBottomButton }) {
           opacity: isVideoLoaded ? 1 : 0,
         }}
       >
-        <source src="assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/mp4" />
-        <source src="assets/WhatsApp Vidéo 2025-09-25 à 14.28.35_ebfdf6c0.mp4" type="video/webm" />
+        <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
+        <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/webm" />
       </Box>
 
       {/* Overlay coloré pour améliorer la lisibilité */}
@@ -382,34 +396,7 @@ function ScrollBottom({ children, showBottomButton }) {
       >
         <Fade in={isVideoLoaded} timeout={1500}>
           <Box sx={{ maxWidth: { xs: '100%', md: '60%' } }}>
-            {/* Titre principal */}
-            <Slide direction="down" in={isVideoLoaded} timeout={800}>
-              <Typography
-                variant="h1"
-                component="h1"
-                sx={{
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: { 
-                    xs: '2.5rem', 
-                    sm: '3.5rem', 
-                    md: '4rem',
-                    lg: '4.5rem' 
-                  },
-                  lineHeight: 1.1,
-                  mb: 3,
-                  textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
-                }}
-              >
-                GreenCycle
-                <Box 
-                  component="span" 
-                  sx={{ color: '#7fe261ff', display: 'block' }}
-                >
-                  Liberia Inc.
-                </Box>
-              </Typography>
-            </Slide>
+          
 
             {/* Sous-titre */}
             <Slide direction="right" in={isVideoLoaded} timeout={1000}>
@@ -417,7 +404,7 @@ function ScrollBottom({ children, showBottomButton }) {
                 variant="h4"
                 component="h2"
                 sx={{
-                  color: '#7fe261ff',
+                  color: 'background.paper',
                   fontWeight: '600',
                   fontSize: { xs: '1.3rem', sm: '1.6rem', md: '1.8rem' },
                   mb: 4,
@@ -433,7 +420,8 @@ function ScrollBottom({ children, showBottomButton }) {
             <Slide direction="up" in={isVideoLoaded} timeout={1400}>
               <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
                 <Button
-                  
+                  component={RouterLink}
+                  to="/solutions"
                   variant="contained"
                   size="large"
                   endIcon={<East />}
@@ -528,7 +516,7 @@ function ScrollBottom({ children, showBottomButton }) {
         <Typography variant="caption"></Typography>
       </Box>
 
-       <ScrollTop>
+      <ScrollTop>
         <Fab
           color="primary"
           size="medium"

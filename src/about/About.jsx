@@ -3,7 +3,9 @@ import About1 from '../component/About1.jsx';
 import Equipe from '../component/Equipe.jsx'
 import Video from '../component/Video.jsx';
 import Footer1 from '../component/Footer1.jsx';
+import Partnership from '../component/Partnership.jsx'
 import Abouthome from '../component/Abouthome.jsx';
+import Industrie from '../component/Industrie.jsx'
 import {
   Box,
   Container,
@@ -130,6 +132,8 @@ const ServicesPresentation = () => {
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/activity' },
     { label: 'Services', path: '/solutions' },
+    { label: 'Sustainability', path: '/soustainbility' },
+    { label: 'Newproject', path: '/action' },
   ];
 
    // Navigation mobile
@@ -214,19 +218,23 @@ const ServicesPresentation = () => {
           backgroundColor: scrolled ? 'white' : 'transparent',
           boxShadow: scrolled ? 1 : 'none',
           transition: 'all 0.3s ease-in-out',
+          backgroundImage: scrolled ? 'none' : 'transparent',
         }}
       >
         <Container maxWidth="lg">
           <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
             {/* Logo avec lien */}
             <Box sx={{ display:'flex', 
-                flexDirection:{ xs:'column',md:'row'}}}>
+                flexDirection:'row'}}>
                 <Avatar
                   alt='Logo' 
-                  src="assets/Capture d'écran 2025-09-17 091439.png"
-                  sx={{ height: { xs: '60px', md: '80px' }, width: { xs: '60px', md: '80px' } }}/>
+                  src="/assets/Capture d'écran 2025-09-17 091439.png"
+                   sx={{ 
+                   height: { xs: '35px', sm: '45px', md: '50px' }, 
+                   width: { xs: '35px', sm: '45px', md: '50px' } 
+                 }}/>
                 <Typography 
-                  variant='h4'
+                  variant='h5'
                   component='h1'
                   sx={{fontWeight:'bold', color:'#7fe261ff',fontStyle:'italic'}}>
                    GreenCycle <br/>
@@ -303,7 +311,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("assets/545033648_122108511362992913_5975337630202281550_n.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-10-17 à 15.07.41_7c88e503.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -314,7 +322,7 @@ const ServicesPresentation = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: alpha('#000000', 0.4), // Overlay sombre pour lisibilité
+            backgroundColor: alpha('#000000', 0.6), // Overlay sombre pour lisibilité
             zIndex: 1,
           }
         }}
@@ -422,8 +430,10 @@ const ServicesPresentation = () => {
       <Box mt={20}>
         <Abouthome />
         <Video />
+        <Industrie mt={20}/>
         <Equipe/>
         <About1 />
+        <Partnership/>
         <Box mt={10}>
         <Footer1/>
         </Box>

@@ -27,10 +27,6 @@ const WhyChooseUs = () => {
       description: "To be the leading supplier of nutrient-rich organic fertilizers for agriculture,clean biogas for energy, and high-value recycled materials,driving sustainability and innovation in Liberia and beyond. "
     },
     {
-      title: " Our Sustainability",
-      description: "We transform waste challenges into economic opportunities through innovative recycling, composting, and energy recovery technologies."
-    },
-    {
       title: "Our mission ",
       description: " To create sustainable waste solutions for Liberia by transforming waste through recycling and composting, empowering communitiesthrough active engagement, and reducing our carbonfootprint while improving the quality of life for our employees and the communities we serve."
     },
@@ -98,11 +94,6 @@ const WhyChooseUs = () => {
                             mb: 4,
                             p: 2,
                             borderRadius: 2,
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                              backgroundColor: alpha(theme.palette.primary.light, 0.05),
-                              transform: 'translateX(8px)'
-                            }
                           }}
                         >
                           {/* Icône */}
@@ -180,7 +171,7 @@ const WhyChooseUs = () => {
                       {/* Image */}
                       <CardMedia
                         component="img"
-                        image="assets/f82a48371648700d13cc163199e7471f.jpg"
+                        image="/assets/f82a48371648700d13cc163199e7471f.jpg"
                         alt="Pourquoi nous choisir"
                         sx={{
                           width: '100%',

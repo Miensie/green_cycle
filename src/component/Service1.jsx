@@ -10,49 +10,49 @@ import {
   useTheme,
   useMediaQuery
 } from '@mui/material';
-import { KeyboardArrowLeft, KeyboardArrowRight, PlayArrow, Pause } from '@mui/icons-material';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 
 const products = [
   {
     id: 1,
     name: 'Community Awareness & Outreach',
-    href: '#',
-    imageSrc: 'assets/34204c51035ddd03d3662a4e3512262a.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/feeb75183886b4e710ea2990a3131b38.jpg',
     imageAlt: "",
   },
   {
     id: 2,
     name: 'Training & Capacity Building',
-    href: '#',
-    imageSrc: 'assets/WhatsApp Image 2025-09-05 à 04.57.08_a3700c07.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/4251d625d62911d0328d5be1d2db90a4.jpg',
     imageAlt: "",
   },
   {
     id: 3,
     name: 'Plastic Recycling & Upcycling',
-    href: '#',
-    imageSrc: 'assets/86b859fb263bd11addd26e21e252864f.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/WhatsApp Image 2025-10-09 à 04.08.44_073d7368.jpg',
     imageAlt: "",
   },
   {
     id: 4,
     name: 'Waste Collection & Sorting',
-    href: '#',
-    imageSrc: 'assets/b1301743216ed33be27bb938b462159e.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/542723233_122106111518992913_6057981429094286876_n.jpg',
     imageAlt: "",
   },
   {
     id: 5,
     name: 'Biogas & Composting Solutions',
-    href: '#',
-    imageSrc: 'assets/540462698_122103984806992913_8996062062461794680_n.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/WhatsApp Image 2025-10-09 à 04.08.27_52ae1132.jpg',
     imageAlt: "",
   },
   {
     id: 6,
     name: 'Partnership & Advisory Support',
-    href: '#',
-    imageSrc: 'assets/e7697ff24ce8c6f99e1b0b11472cbc61.jpg',
+    href: '/solutions',
+    imageSrc: '/assets/WhatsApp Image 2025-10-09 à 04.09.38_75f09046.jpg',
     imageAlt: "",
   },
 ];
@@ -253,20 +253,7 @@ export default function ProductCarousel() {
           gap: 3 
         }}>
           {/* Bouton play/pause */}
-          <IconButton 
-            onClick={() => setAutoPlay(!autoPlay)} 
-            color="primary"
-            size="large"
-            sx={{
-              backgroundColor: autoPlay ? 'green' : 'grey.300',
-              color: autoPlay ? 'white' : 'grey.600',
-              '&:hover': {
-                backgroundColor: autoPlay ? 'darkgreen' : 'grey.400',
-              }
-            }}
-          >
-            {autoPlay ? <Pause /> : <PlayArrow />}
-          </IconButton>
+         
 
           {/* Indicateurs de slide */}
           <Box sx={{ display: 'flex', gap: 1.5 }}>
@@ -292,29 +279,10 @@ export default function ProductCarousel() {
         </Box>
 
         {/* Compteur de slides */}
-        <Typography 
-          variant="body1" 
-          sx={{ 
-            textAlign: 'center', 
-            color: 'text.secondary',
-            mt: 2
-          }}
-        >
-          {activeIndex + 1} / {maxIndex + 1}
-        </Typography>
+       
 
         {/* Indication visuelle du défilement */}
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            textAlign: 'center', 
-            color: 'grey.600',
-            mt: 1,
-            fontStyle: 'italic'
-          }}
-        >
-          {itemsPerView} services visibles • {products.length} au total
-        </Typography>
+        
       </Box>
     </Box>
   );
