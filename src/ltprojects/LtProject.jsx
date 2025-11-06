@@ -315,7 +315,7 @@ function ScrollBottom({ children, showBottomButton }) {
           minHeight: '10vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("src/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

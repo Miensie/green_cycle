@@ -63,129 +63,190 @@ const VideoPresentation = () => {
       width: '100%', 
       overflow: 'hidden',
       borderRadius: { xs: 1, md: 2 },
-      boxShadow: '0 10px 40px rgba(0,0,0,0.2)'
+      boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
+      // Cadre responsive qui s'adapte à l'écran mobile
+      height: {
+        xs: '70vh', // 70% de la hauteur de l'écran sur mobile
+        sm: '500px',
+        md: '600px'
+      },
+      maxHeight: {
+        xs: '500px', // Limite maximum sur mobile
+        md: 'none'
+      }
     }}>
-      <video
-        ref={videoRef}
-        width="100%"
-        height="600px"
-        style={{
-          display: 'block',
-          objectFit: 'cover',
-          minHeight: '600px',
-          borderRadius: 'inherit'
+      {/* Conteneur vidéo responsive */}
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          position: 'relative'
         }}
-        poster=""
-        onEnded={() => setIsPlaying(false)}
       >
-        <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
-        Votre navigateur ne supporte pas la lecture de vidéos.
-      </video>
-      
-      {!isPlaying && (
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(76,175,80,0.2) 100%)',
-            color: 'white',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            '&:hover': {
-              background: 'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(76,175,80,0.3) 100%)',
-            }
+        <video
+          ref={videoRef}
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            objectFit: 'cover',
+            borderRadius: 'inherit'
           }}
-          onClick={togglePlay}
+          poster=""
+          onEnded={() => setIsPlaying(false)}
         >
-          {/* Bouton Play avec effets combinés */}
+          <source src="src/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+        
+        {!isPlaying && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(76,175,80,0.2) 100%)',
+              color: 'white',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                background: 'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(76,175,80,0.3) 100%)',
+              },
+              // Adaptation pour mobile
+              padding: { xs: 2, md: 4 }
+            }}
+            onClick={togglePlay}
+          >
+            {/* Bouton Play avec effets combinés */}
+            <IconButton 
+              sx={{ 
+                backgroundColor: '#4caf50',
+                animation: `${zoomPulse} 2s ease-in-out infinite, ${glow} 3s ease-in-out infinite`,
+                '&:hover': {
+                  backgroundColor: '#388e3c',
+                  animation: `${zoomPulse} 1s ease-in-out infinite, ${glow} 1.5s ease-in-out infinite`,
+                  transform: 'scale(1.1)'
+                },
+                width: { 
+                  xs: 60,   // Plus petit sur mobile
+                  sm: 80,   // Tablet
+                  md: 100   // Desktop
+                },
+                height: { 
+                  xs: 60, 
+                  sm: 80, 
+                  md: 100 
+                },
+                mb: { xs: 2, md: 3 }
+              }}
+            >
+              <PlayArrowIcon sx={{ 
+                fontSize: { 
+                  xs: 30,   // Plus petit sur mobile
+                  sm: 40,   // Tablet
+                  md: 50    // Desktop
+                }, 
+                color: 'white',
+                animation: `${blink} 2s ease-in-out infinite`
+              }} />
+            </IconButton>
+
+            {/* Texte avec effet d'apparition - Adapté mobile */}
+            <Typography variant="h2" sx={{
+              textTransform: 'uppercase',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              fontSize: { 
+                xs: '1.5rem',  // Plus petit sur mobile
+                sm: '2.5rem',  // Tablet
+                md: '3.5rem'   // Desktop
+              },
+              textShadow: '2px 2px 8px rgba(0,0,0,0.5)',
+              animation: `${blink} 3s ease-in-out infinite`,
+              mb: { xs: 0.5, md: 1 },
+              lineHeight: { xs: 1.2, md: 1.3 }
+            }}>
+              Sustainability
+            </Typography>
+            <Typography variant="h4" sx={{
+              textTransform: 'uppercase',
+              fontWeight: '300',
+              textAlign: 'center',
+              fontSize: { 
+                xs: '1rem',    // Plus petit sur mobile
+                sm: '1.5rem',  // Tablet
+                md: '2rem'     // Desktop
+              },
+              textShadow: '2px 2px 6px rgba(0,0,0,0.5)',
+              animation: `${blink} 3s ease-in-out infinite`,
+              animationDelay: '0.5s',
+              lineHeight: { xs: 1.2, md: 1.3 }
+            }}>
+              at the Core
+            </Typography>
+
+            {/* Texte d'appel à l'action - Position adaptative */}
+            <Typography variant="body1" sx={{
+              position: 'absolute',
+              bottom: { xs: 15, md: 30 }, // Plus proche du bord sur mobile
+              textAlign: 'center',
+              fontSize: { 
+                xs: '0.8rem',   // Plus petit sur mobile
+                md: '1.1rem'    // Desktop
+              },
+              opacity: 0.9,
+              animation: `${blink} 2s ease-in-out infinite`,
+              fontStyle: 'italic',
+              width: '90%', // Prend moins de largeur sur mobile
+              mx: 'auto'
+            }}>
+              Click to discover our sustainable journey
+            </Typography>
+          </Box>
+        )}
+        
+        {isPlaying && (
           <IconButton 
             sx={{ 
-              backgroundColor: '#4caf50',
-              animation: `${zoomPulse} 2s ease-in-out infinite, ${glow} 3s ease-in-out infinite`,
+              position: 'absolute',
+              bottom: { xs: 10, md: 20 }, // Plus proche du bord sur mobile
+              right: { xs: 10, md: 20 },  // Plus proche du bord sur mobile
+              backgroundColor: 'rgba(76, 175, 80, 0.8)',
+              color: 'white',
+              animation: `${glow} 2s ease-in-out infinite`,
               '&:hover': {
-                backgroundColor: '#388e3c',
-                animation: `${zoomPulse} 1s ease-in-out infinite, ${glow} 1.5s ease-in-out infinite`,
+                backgroundColor: 'rgba(76, 175, 80, 1)',
                 transform: 'scale(1.1)'
               },
-              width: { xs: 70, md: 100 },
-              height: { xs: 70, md: 100 },
-              mb: 3
+              width: { 
+                xs: 40,   // Plus petit sur mobile
+                sm: 50,   // Tablet
+                md: 60    // Desktop
+              },
+              height: { 
+                xs: 40, 
+                sm: 50, 
+                md: 60 
+              }
             }}
+            onClick={togglePlay}
           >
-            <PlayArrowIcon sx={{ 
-              fontSize: { xs: 35, md: 50 }, 
-              color: 'white',
-              animation: `${blink} 2s ease-in-out infinite`
+            <PauseIcon sx={{ 
+              fontSize: { 
+                xs: 20,   // Plus petit sur mobile
+                sm: 25,   // Tablet
+                md: 30    // Desktop
+              } 
             }} />
           </IconButton>
-
-          {/* Texte avec effet d'apparition */}
-          <Typography variant="h2" sx={{
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            fontSize: { xs: '2rem', md: '3.5rem' },
-            textShadow: '2px 2px 8px rgba(0,0,0,0.5)',
-            animation: `${blink} 3s ease-in-out infinite`,
-            mb: 1
-          }}>
-            Sustainability
-          </Typography>
-          <Typography variant="h4" sx={{
-            textTransform: 'uppercase',
-            fontWeight: '300',
-            textAlign: 'center',
-            fontSize: { xs: '1.2rem', md: '2rem' },
-            textShadow: '2px 2px 6px rgba(0,0,0,0.5)',
-            animation: `${blink} 3s ease-in-out infinite`,
-            animationDelay: '0.5s'
-          }}>
-            at the Core
-          </Typography>
-
-          {/* Texte d'appel à l'action */}
-          <Typography variant="body1" sx={{
-            position: 'absolute',
-            bottom: 30,
-            textAlign: 'center',
-            fontSize: { xs: '0.9rem', md: '1.1rem' },
-            opacity: 0.9,
-            animation: `${blink} 2s ease-in-out infinite`,
-            fontStyle: 'italic'
-          }}>
-            Click to discover our sustainable journey
-          </Typography>
-        </Box>
-      )}
-      
-      {isPlaying && (
-        <IconButton 
-          sx={{ 
-            position: 'absolute',
-            bottom: 20,
-            right: 20,
-            backgroundColor: 'rgba(76, 175, 80, 0.8)',
-            color: 'white',
-            animation: `${glow} 2s ease-in-out infinite`,
-            '&:hover': {
-              backgroundColor: 'rgba(76, 175, 80, 1)',
-              transform: 'scale(1.1)'
-            },
-            width: { xs: 50, md: 60 },
-            height: { xs: 50, md: 60 }
-          }}
-          onClick={togglePlay}
-        >
-          <PauseIcon sx={{ fontSize: { xs: 25, md: 30 } }} />
-        </IconButton>
-      )}
+        )}
+      </Box>
     </Box>
   );
 };

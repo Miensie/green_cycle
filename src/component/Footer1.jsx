@@ -41,7 +41,7 @@ const Footer = () => {
             flexDirection:{ xs:'column',md:'row'}}}>
             <Avatar
             alt='Logo' 
-            src="/assets/Capture d'écran 2025-09-17 091439.png"
+            src="src/assets/Capture d'écran 2025-09-17 091439.png"
             sx={{ height: { xs: '30px', md: '60px' }, width: { xs: '30px', md: '60px' } }}/>
             <Typography 
             variant='h4'

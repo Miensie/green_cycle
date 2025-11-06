@@ -19,17 +19,21 @@ import {
   List,
   ListItem,
   ListItemText,
-
-
+  Zoom,
+  useScrollTrigger,
+  Fab
 } from '@mui/material';
 import {  Menu as MenuIcon } from '@mui/icons-material';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 
 const ServicesPresentation = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [scrolled, setScrolled] = useState(false);
-   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showBottomButton, setShowBottomButton] = useState(true);
   // Gestion du scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +44,81 @@ const ServicesPresentation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+
+  
+       // Composant pour le bouton de retour en haut
+      function ScrollTop({ children }) {
+        const trigger = useScrollTrigger({
+          disableHysteresis: true,
+          threshold: 100,
+        });
+      
+        const handleClick = () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        };
+      
+        return (
+          <Zoom in={trigger}>
+            <Box
+              onClick={handleClick}
+              role="presentation"
+              sx={{
+                position: 'fixed',
+                bottom: { xs: 80, md: 100 },
+                right: { xs: 20, md: 30 },
+                zIndex: 1000,
+              }}
+            >
+              {children}
+            </Box>
+          </Zoom>
+        );
+      }
+      
+      
+       useEffect(() => {
+          const checkScrollPosition = () => {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.body.scrollHeight;
+            setShowBottomButton(scrollPosition < pageHeight - 200);
+          };
+      
+          window.addEventListener('scroll', checkScrollPosition);
+          checkScrollPosition();
+      
+          return () => window.removeEventListener('scroll', checkScrollPosition);
+        }, []);
+      
+      // Composant pour le bouton de descente en bas
+      function ScrollBottom({ children, showBottomButton }) {
+        const handleClick = () => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+          });
+        };
+      
+        return (
+          <Zoom in={showBottomButton}>
+            <Box
+              onClick={handleClick}
+              role="presentation"
+              sx={{
+                position: 'fixed',
+                bottom: { xs: 20, md: 30 },
+                right: { xs: 20, md: 30 },
+                zIndex: 1000,
+              }}
+            >
+              {children}
+            </Box>
+          </Zoom>
+        );
+      }
 
  // Menu items avec liens
   const menuItems = [
@@ -142,7 +221,7 @@ const ServicesPresentation = () => {
                 flexDirection:'row'}}>
                 <Avatar
                  alt='Logo' 
-                 src="/assets/Capture d'écran 2025-09-17 091439.png"
+                 src="src/assets/Capture d'écran 2025-09-17 091439.png"
                 sx={{ 
                    height: { xs: '35px', sm: '45px', md: '50px' }, 
                    width: { xs: '35px', sm: '45px', md: '50px' } 
@@ -231,7 +310,7 @@ const ServicesPresentation = () => {
           minHeight: '10vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("src/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -353,6 +432,40 @@ const ServicesPresentation = () => {
       </Box>
       <Box sx={{marginTop: '20px'}}>
       <Footer1 />
+
+      <ScrollTop>
+                <Fab
+                color="primary"
+                size="medium"
+                aria-label="scroll back to top"
+                sx={{
+                    backgroundColor: 'green',
+                    '&:hover': {
+                          backgroundColor: 'darkgreen',
+                      },
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                    }}
+                    >
+                    <KeyboardArrowUpIcon />
+                  </Fab>
+              </ScrollTop>
+                  
+              <ScrollBottom showBottomButton={showBottomButton}>
+                  <Fab
+                    color="secondary"
+                    size="medium"
+                    aria-label="scroll to bottom"
+                    sx={{
+                    backgroundColor: '#41b156ff',
+                    '&:hover': {
+                       backgroundColor: '#2e7d32',
+                      },
+                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                     }}
+                   >
+                <KeyboardArrowDownIcon />
+                      </Fab>
+                </ScrollBottom>
       </Box>
     </Box>
   );

@@ -2,15 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import {createBrowserRouter,RouterProvider } from 'react-router-dom'
-import Dashboard  from './dashboard/Dashboard.jsx'
-import Activity from './activity/Activity.jsx'
-import Contact from './contact/Contact.jsx'
-import About from './about/About.jsx'
-import Solutions from   './solutions/Solutions.jsx'
-import Soustainbility  from './soustainbility/Soustainbility.jsx'
-import Action from './action/Action.jsx'
-import LtProject from './ltprojects/LtProject.jsx'
-import StProject from './stproject/StProject.jsx'
+import Dashboard  from '../src/dashboard/Dashboard.jsx'
+import Activity from '../src/activity/Activity.jsx'
+import Contact from '../src/contact/Contact.jsx'
+import About from '../src/about/About.jsx'
+import Solutions from   '../src/solutions/Solutions.jsx'
+import Soustainbility  from '../src/soustainbility/Soustainbility.jsx'
+import Action from '../src/action/Action.jsx'
+import LtProject from '../src/ltprojects/LtProject.jsx'
+import StProject from '../src/stproject/StProject.jsx'
+import { Toaster } from 'react-hot-toast'
 
 
 const theme = createTheme({
@@ -81,6 +82,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
    <ThemeProvider theme={theme}>
+      <Toaster />
       <CssBaseline /> 
      <RouterProvider 
      router={router} />

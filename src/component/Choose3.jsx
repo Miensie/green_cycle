@@ -171,7 +171,7 @@ const WhyChooseUs = () => {
                       {/* Image */}
                       <CardMedia
                         component="img"
-                        image="/assets/f82a48371648700d13cc163199e7471f.jpg"
+                        image="src/assets/f82a48371648700d13cc163199e7471f.jpg"
                         alt="Pourquoi nous choisir"
                         sx={{
                           width: '100%',

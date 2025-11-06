@@ -12,6 +12,8 @@ import {
   useMediaQuery
 } from '@mui/material';
 import { 
+  KeyboardArrowLeft, 
+  KeyboardArrowRight,
   KeyboardArrowDown,
   KeyboardArrowUp
 } from '@mui/icons-material';
@@ -22,72 +24,57 @@ const people = [
   {
     name: 'Charles Favor Elsar, Jr.',
     role: 'Founder & Chief Executive Officer – GreenCycle Liberia, INC',
-    description1: 'Charles Favor Elsar, Jr. is a passionate environmental innovator, engineer, and visionary leader committed to driving sustainable transformation across Liberia and the African continent. He holds a Bachelor of Science in Mining and Geology from the Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d'Ivoire, an MSc in Waste Management Engineering from the Centre d'Excellence Africain pour la Valorisation des Produits à Haute Valeur Ajoutée (CEA-ValoPro) of Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d'Ivoire, and an MSc in Process and Bioprocess Engineering from the Université Sorbonne Paris Nord, France.',
+    description1: 'Charles Favor Elsar, Jr. is a passionate environmental innovator, engineer, and visionary leader committed to driving sustainable transformation across Liberia and the African continent. He holds a Bachelor of Science in Mining and Geology from the Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d\'Ivoire, an MSc in Waste Management Engineering from the Centre d\'Excellence Africain pour la Valorisation des Produits à Haute Valeur Ajoutée (CEA-ValoPro) of Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d\'Ivoire, and an MSc in Process and Bioprocess Engineering from the Université Sorbonne Paris Nord, France.',
     description2:'He also holds professional certifications in Environmental Law and Protection and Environmental Technology from the Institut de la Francophonie pour le Développement Durable (IFDD) / Université Senghor, as well as in Environmental Law and Legal Compliance, strengthening his expertise in environmental policy, compliance, and sustainable development. In addition, he is a certified French speaker, making him bilingual and fluent in both English and French, which enhances his ability to collaborate effectively across diverse international and multicultural environments. ',
     description3:'Professionally, he has accumulated diverse experiences in the environmental and industrial sectors. He previously worked with Dr SETT Sénégal, a waste management company specialized in waste treatment and valorization, where he served as an Environmental Engineer and QHSE Manager, overseeing environmental compliance, quality assurance, and health and safety management. He also worked with Bureau Veritas Liberia, gaining valuable experience in environmental quality control, mining operations, and laboratory analysis.',
-    imageUrl: '/assets/WhatsApp Image 2025-09-01 à 03.04.40_b2928c6b.jpg',
+    imageUrl: 'src/assets/WhatsApp Image 2025-09-01 à 03.04.40_b2928c6b.jpg',
   },
   {
     name: 'Ashall David Whei.',
     role: 'Co-Founder & Technical Director – GreenCycle Liberia, INC',
-    description1: 'Ashall David Whei is a dedicated chemical engineer, innovator, and environmental enthusiast with a strong passion for sustainable development and technological advancement. As Co-Founder and Technical Director of GreenCycle Liberia, INC, he plays a key role in designing, optimizing, and overseeing the company's waste-to-value processes, ensuring that every innovation meets the highest standards of efficiency, safety, and environmental sustainability.',
-    description2:'Ashall holds a Bachelor of Science in Chemical Engineering and a Master of Science in Analytical Chemistry, both from the Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d'Ivoire. His strong background in chemical process design, analytical techniques, and environmental chemistry enables him to develop practical and scalable solutions for recycling, composting, and clean energy production. ',
-    description3:'He also holds several professional certificates in Environmental Science, including Environmental Technology from the Institut de la Francophonie pour le Développement Durable (IFDD) / Université Senghor. His multidisciplinary training combines scientific expertise with a deep commitment to sustainable innovation. Fluent in both English and French, and a certified French speaker, Ashall brings bilingual excellence to GreenCycle Liberia's collaborations with regional and international partners. His technical leadership and dedication to environmental responsibility continue to drive the company's mission of transforming waste into valuable resources and building a greener, cleaner, and more resilient Liberia.',
-    imageUrl: '/assets/WhatsApp Image 2025-10-09 à 15.57.10_4d6fd79e.jpg',
+    description1: 'Ashall David Whei is a dedicated chemical engineer, innovator, and environmental enthusiast with a strong passion for sustainable development and technological advancement. As Co-Founder and Technical Director of GreenCycle Liberia, INC, he plays a key role in designing, optimizing, and overseeing the company\'s waste-to-value processes, ensuring that every innovation meets the highest standards of efficiency, safety, and environmental sustainability.',
+    description2:'Ashall holds a Bachelor of Science in Chemical Engineering and a Master of Science in Analytical Chemistry, both from the Institut National Polytechnique Félix Houphouët-Boigny (INP-HB), Côte d\'Ivoire. His strong background in chemical process design, analytical techniques, and environmental chemistry enables him to develop practical and scalable solutions for recycling, composting, and clean energy production. ',
+    description3:'He also holds several professional certificates in Environmental Science, including Environmental Technology from the Institut de la Francophonie pour le Développement Durable (IFDD) / Université Senghor. His multidisciplinary training combines scientific expertise with a deep commitment to sustainable innovation. Fluent in both English and French, and a certified French speaker, Ashall brings bilingual excellence to GreenCycle Liberia\'s collaborations with regional and international partners. His technical leadership and dedication to environmental responsibility continue to drive the company\'s mission of transforming waste into valuable resources and building a greener, cleaner, and more resilient Liberia.',
+    imageUrl: 'src/assets/WhatsApp Image 2025-10-09 à 15.57.10_4d6fd79e.jpg',
   },
   {
     name: 'Jonathan Zwannah Elsar Sr',
     role: 'Chairman board of Directors',
-    description1: 'Jonathan Zwannah Elsar Sr holds an Associate Degree in School Administration from the LICOSESS Mobile Teaching Training College, and a BS.c in Accounting from the University of Liberia.',
+    description1: 'Jonathan Zwannah Elsar Sr holds an Associate Degree in School Administration from the LICOSESS Mobile Teaching Training College, and a BS.c in Accounting from the University of Liberia ,.',
     description2:'Founder and CEO of the Universal Standard School of Health Sciences at the Fish Market, Sinkor. He has over 20 years of experience in Administration.',
     description3:'A well-seasoned administrator, educator, and accountant.',
-    imageUrl: '/assets/WhatsApp Image 2025-09-06 à 09.07.51_48b1f69c.jpg',
+    imageUrl: 'src/assets/WhatsApp Image 2025-09-06 à 09.07.51_48b1f69c.jpg',
   },
   {
     name: 'Oscar Bush Seth',
     role: 'Co-chairman board of directors',
     description1:'Mr. Seth is a seasoned professional in Insurance and Risk Management, with extensive expertise in Compliance and Claims. As a strategic leader, he currently holds the position of Managing Director and CEO at Excellent Insurance Brokerage LLC.',
-    imageUrl: '/assets/WhatsApp Image 2025-09-06 à 09.09.44_20ee9fd8.jpg',
+    imageUrl: 'src/assets/WhatsApp Image 2025-09-06 à 09.09.44_20ee9fd8.jpg',
   },
   {
     name: 'Gami Bi Ta Innocent',
     role: 'Environmental Engineer | Waste Valorization & Sustainable Technologie.',
     description1: "Gami Bi Ta Innocent holds a Bachelor's in Earth Sciences and a Master's in Geomaterials and Habitat Technology from the Université Félix Houphoüt Boigny de Cocody, Abidjan. Furthermore, he holds a Master in Process and Bioprocess Engineering from the Université Sorbonne Paris Nord, and another Master in Waste Valorisation from the Institute National Polytechnique Houphoüt Boigny in Yamoussoukro.",
     description2:'Passionate about sustainability and innovation, Innocent brings his expertise to transform waste into valuable resources and drive green solutions for a better future at GreenCycle Liberia, INC.',
-    imageUrl: '/assets/WhatsApp Image 2025-09-06 à 09.10.10_48056e95.jpg',
+    imageUrl: 'src/assets/WhatsApp Image 2025-09-06 à 09.10.10_48056e95.jpg',
   },
   {
     name: 'Mr. Roland Yengbeh Jr',
     role: 'Field Manager',
     description1:'Passionate about environmental science from an early age, Mr. Roland Yengbeh Jr formalized that calling into a focused academic path at the Tubman National Institute of Medical Arts (TNIMA), where he earned a diploma in Environmental Health.',
-    description2:'During his time at TNIMA, he gained invaluable real-world experience through internships at notable institutions such as the Monrovia Free Port of Liberia and the National Public Health Institute of Liberia (NPHIL). These placements deepened his resolve to work in environmental chemistry and toxicology, reinforcing both his academic and professional aspirations.',
+    description2:'During his time at TNIMA, he gained invaluable real-world experience through internships at notable institutions such as the Monrovia Free Port of Liberia and the National Public Health Institute of Liberia (NPHIL). These placements deepened his resolve to work in environmental chemistry and toxicology, reinforcing both his academic and professional aspirations.Passionate about sustainability and innovation, Innocent brings his expertise to transform waste into valuable resources and drive green solutions for a better future at GreenCycle Liberia, INC.',
     description3:'Transitioning seamlessly from education into practice, he began his career as a classroom teacher at Joseph Dweh Doeyan Academy (JDDA), where he did not only share knowledge but also inspired young minds. Subsequently, he expanded his impact by joining Mobile Waste Solution as a sales agent, promoting responsible waste management through the Mobile Waste Solution App—bridging environmental education with community engagement and technological innovation.',
-    imageUrl: '/assets/WhatsApp Image 2025-09-06 à 09.11.33_2696b6a2.jpg',
+    imageUrl: 'src/assets/WhatsApp Image 2025-09-06 à 09.11.33_2696b6a2.jpg',
   },
-  {
-    name: 'Lucy B. Mccrownsey',
-    role: 'Operations & Logistics Supervisor',
-    description1: 'Mrs. Mccrownsey brings precision, leadership, and efficiency to GreenCycle Liberia's daily operations. Currently a candidate for an Associate of Arts in School Administration at LICOSIESS, she combines organizational insight with strong coordination skills – ensuring that every collection route, transport schedule, and team effort runs seamlessly. Her commitment to structure and excellence makes her an essential pillar of our operational success.',
-    imageUrl: '/assets/Image1.jpg'
-  },
-  {
-    name: 'Urica Hajah Wennah',
-    role: 'Community Engagement & Education Officer',
-    description1:'Ms. Wennah is passionate about creating lasting social impact through education and community engagement. Currently pursuing a Bachelor of Science in Public Health at the University of Liberia, she brings both academic knowledge and grassroots experience to her role at GreenCycle Liberia INC.',
-    description2: 'Driven by her commitment to youth empowerment, Urica actively educates teenagers on the dangers of early childbearing and drug abuse. Her dedication has earned her certifications in Teaching and "Say No to Drugs", strengthening her ability to inspire and lead change within communities.',
-    description3:'Recognized for her strong communication skills, attentive listening, and thorough research abilities, she approaches her work with empathy and purpose. Beyond her professional role, Urica finds fulfillment in reading and writing – channels through which she continues to share knowledge and advocate for a healthier, more informed generation.',
-    imageUrl:'/assets/Image2.jpg'
-  }
 ];
 
 export default function LeadershipTeam() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [currentSlide, setCurrentSlide] = useState(0);
   const [expanded, setExpanded] = useState(people.map(() => false));
 
-  // Responsive: 1 membre sur mobile, 2 sur tablette/desktop
+  // MODIFICATION: 1 membre par slide sur mobile, 2 sur desktop
   const membersPerSlide = isMobile ? 1 : 2;
   const totalSlides = Math.ceil(people.length / membersPerSlide);
 
@@ -105,26 +92,36 @@ export default function LeadershipTeam() {
     setExpanded(newExpanded);
   };
 
+  // Obtenir les membres pour le slide actuel
+  const getCurrentSlideMembers = () => {
+    const startIndex = currentSlide * membersPerSlide;
+    return people.slice(startIndex, startIndex + membersPerSlide);
+  };
+
   return (
     <Box sx={{ 
       backgroundColor: '#f8f9fa', 
-      py: { xs: 4, sm: 6, md: 8 },
-      px: { xs: 2, sm: 3 }
+      py: { xs: 6, sm: 8 },
+      px: 2 
     }}>
       <Box sx={{
         maxWidth: '1200px',
         mx: 'auto',
+        px: { xs: 3, lg: 4 },
       }}>
         {/* Header Section */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 4, sm: 5, md: 6 } }}>
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography 
             variant="h2" 
             component="h2"
             sx={{ 
               fontWeight: 'bold',
-              color: '#1a7e1aff',
-              mb: { xs: 2, md: 3 },
-              fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' }
+              color: '#0c0c0cff',
+              background: 'linear-gradient(90deg, #1a7e1aff,#1a7e1aff)',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              mb: 3,
+              fontSize: { xs: '2rem', md: '2.5rem' }
             }}
           >
             Meet our team
@@ -133,11 +130,9 @@ export default function LeadershipTeam() {
             variant="h6"
             sx={{ 
               color: 'text.secondary',
-              maxWidth: '700px',
+              maxWidth: '600px',
               mx: 'auto',
-              lineHeight: 1.6,
-              px: 2,
-              fontSize: { xs: '0.95rem', sm: '1.1rem', md: '1.25rem' }
+              lineHeight: 1.6
             }}
           >
             Our dedicated team at GreenCycle Liberia INC. brings passion, innovation, and expertise to drive sustainable solutions for a greener future.
@@ -145,75 +140,69 @@ export default function LeadershipTeam() {
         </Box>
 
         {/* Carousel Container */}
-        <Box sx={{ position: 'relative', mx: 'auto' }}>
+        <Box sx={{ position: 'relative', maxWidth: '1200px', mx: 'auto' }}>
           
-          {/* Navigation Arrows - Hidden on mobile if only 1 member per slide */}
+          {/* Navigation Arrows */}
           {totalSlides > 1 && (
             <>
               <IconButton
                 onClick={prevSlide}
                 sx={{
                   position: 'absolute',
-                  left: { xs: -15, sm: -20, md: -30 },
+                  left: { xs: -10, md: -20 },
                   top: '50%',
                   transform: 'translateY(-50%)',
                   backgroundColor: 'white',
                   boxShadow: 2,
-                  zIndex: 10,
-                  width: { xs: 35, sm: 40, md: 45 },
-                  height: { xs: 35, sm: 40, md: 45 },
                   '&:hover': {
-                    backgroundColor: '#1a7e1aff',
+                    backgroundColor: 'primary.main',
                     color: 'white'
-                  }
+                  },
+                  zIndex: 10
                 }}
               >
-                <ArrowBackIcon sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }} />
+                <ArrowBackIcon />
               </IconButton>
 
               <IconButton
                 onClick={nextSlide}
                 sx={{
                   position: 'absolute',
-                  right: { xs: -15, sm: -20, md: -30 },
+                  right: { xs: -10, md: -20 },
                   top: '50%',
                   transform: 'translateY(-50%)',
                   backgroundColor: 'white',
                   boxShadow: 2,
-                  zIndex: 10,
-                  width: { xs: 35, sm: 40, md: 45 },
-                  height: { xs: 35, sm: 40, md: 45 },
                   '&:hover': {
-                    backgroundColor: '#1a7e1aff',
+                    backgroundColor: 'primary.main',
                     color: 'white'
-                  }
+                  },
+                  zIndex: 10
                 }}
               >
-                <ArrowForwardIcon sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }} />
+                <ArrowForwardIcon />
               </IconButton>
             </>
           )}
 
           {/* Team Members Container */}
-          <Box sx={{ 
-            overflow: 'hidden',
-            px: { xs: 0, sm: 1, md: 2 }
-          }}>
+          <Box sx={{ overflow: 'hidden' }}>
             <Box
               sx={{
                 display: 'flex',
                 transition: 'transform 0.5s ease-in-out',
-                transform: `translateX(-${currentSlide * 100}%)`,
+                transform: `translateX(-${currentSlide * (100 / totalSlides)}%)`,
+                width: `${totalSlides * 100}%`
               }}
             >
               {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                 <Box
                   key={slideIndex}
                   sx={{
-                    minWidth: '100%',
+                    width: `${100 / totalSlides}%`,
                     display: 'flex',
-                    gap: { xs: 0, sm: 2, md: 3 },
-                    px: { xs: 0, sm: 1 }
+                    gap: 3,
+                    px: 2
                   }}
                 >
                   {people
@@ -224,14 +213,14 @@ export default function LeadershipTeam() {
                         <Box
                           key={globalIndex}
                           sx={{
+                            // MODIFICATION: 100% de largeur sur mobile, 50% sur desktop
                             width: isMobile ? '100%' : '50%',
-                            flexShrink: 0,
-                            px: { xs: 1, sm: 0 }
+                            flexShrink: 0
                           }}
                         >
                           <Card
                             sx={{
-                              borderRadius: { xs: 3, sm: 4 },
+                              borderRadius: 4,
                               boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                               overflow: 'hidden',
                               transition: 'all 0.3s ease-in-out',
@@ -245,7 +234,7 @@ export default function LeadershipTeam() {
                             }}
                           >
                             <CardContent sx={{ 
-                              p: { xs: 2.5, sm: 3, md: 4 },
+                              p: { xs: 3, md: 4 },
                               flexGrow: 1,
                               display: 'flex',
                               flexDirection: 'column'
@@ -253,32 +242,32 @@ export default function LeadershipTeam() {
                               {/* Avatar and Basic Info */}
                               <Box sx={{ 
                                 display: 'flex', 
-                                flexDirection: 'column',
+                                flexDirection: isMobile ? 'column' : 'column', // MODIFICATION: colonne sur mobile, ligne sur desktop
                                 alignItems: 'center',
-                                gap: { xs: 2, sm: 2.5, md: 3 },
-                                mb: { xs: 2, sm: 2.5, md: 3 },
-                                textAlign: 'center'
+                                gap: 3,
+                                mb: 3,
+                                textAlign: isMobile ? 'center' : 'left'
                               }}>
                                 <Avatar 
                                   alt={person.name} 
                                   src={person.imageUrl} 
                                   sx={{ 
-                                    width: { xs: 90, sm: 100, md: 120 }, 
-                                    height: { xs: 90, sm: 100, md: 120 },
-                                    border: '3px solid #1a7e1aff',
+                                    width: { xs: 100, md: 120 }, 
+                                    height: { xs: 100, md: 120 },
+                                    border: '1px solid green',
                                     flexShrink: 0
                                   }} 
                                 />
                                 
-                                <Box sx={{ width: '100%' }}>
+                                <Box sx={{ flex: 1 }}>
                                   <Typography 
                                     variant="h5" 
                                     component="h3"
                                     sx={{ 
                                       fontWeight: 'bold',
-                                      color: '#1a7e1aff',
+                                      color: 'green',
                                       mb: 1,
-                                      fontSize: { xs: '1rem', sm: '1.15rem', md: '1.3rem' }
+                                      fontSize: { xs: '1.1rem', md: '1.3rem' }
                                     }}
                                   >
                                     {person.name}
@@ -289,9 +278,8 @@ export default function LeadershipTeam() {
                                     sx={{ 
                                       color: 'text.secondary',
                                       fontWeight: '500',
-                                      mb: { xs: 1.5, sm: 2 },
-                                      fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
-                                      lineHeight: 1.4
+                                      mb: 2,
+                                      fontSize: { xs: '0.9rem', md: '1rem' }
                                     }}
                                   >
                                     {person.role}
@@ -302,13 +290,10 @@ export default function LeadershipTeam() {
                                     onClick={() => toggleExpand(globalIndex)}
                                     endIcon={expanded[globalIndex] ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
                                     sx={{
-                                      color: '#1a7e1aff',
+                                      color: 'green',
                                       fontWeight: '600',
                                       textTransform: 'none',
-                                      fontSize: { xs: '0.85rem', sm: '0.9rem' },
-                                      '&:hover': {
-                                        backgroundColor: 'rgba(26, 126, 26, 0.08)'
-                                      }
+                                      fontSize: '0.9rem'
                                     }}
                                   >
                                     {expanded[globalIndex] ? 'Show Less' : 'Read Bio'}
@@ -320,17 +305,15 @@ export default function LeadershipTeam() {
                               <Collapse in={expanded[globalIndex]} timeout="auto">
                                 <Box sx={{ 
                                   borderTop: `1px solid ${theme.palette.divider}`,
-                                  pt: { xs: 2, sm: 2.5, md: 3 }
+                                  pt: 3 
                                 }}>
                                   {person.description1 && (
                                     <Typography 
                                       variant="body2"
                                       sx={{ 
                                         color: 'text.secondary',
-                                        lineHeight: 1.7,
-                                        mb: 2,
-                                        textAlign: 'justify',
-                                        fontSize: { xs: '0.85rem', sm: '0.9rem', md: '0.95rem' }
+                                        lineHeight: 1.6,
+                                        mb: 2
                                       }}
                                     >
                                       {person.description1}
@@ -342,10 +325,8 @@ export default function LeadershipTeam() {
                                       variant="body2"
                                       sx={{ 
                                         color: 'text.secondary',
-                                        lineHeight: 1.7,
-                                        mb: 2,
-                                        textAlign: 'justify',
-                                        fontSize: { xs: '0.85rem', sm: '0.9rem', md: '0.95rem' }
+                                        lineHeight: 1.6,
+                                        mb: 2
                                       }}
                                     >
                                       {person.description2}
@@ -357,9 +338,7 @@ export default function LeadershipTeam() {
                                       variant="body2"
                                       sx={{ 
                                         color: 'text.secondary',
-                                        lineHeight: 1.7,
-                                        textAlign: 'justify',
-                                        fontSize: { xs: '0.85rem', sm: '0.9rem', md: '0.95rem' }
+                                        lineHeight: 1.6
                                       }}
                                     >
                                       {person.description3}
@@ -379,26 +358,20 @@ export default function LeadershipTeam() {
 
           {/* Dots Indicator */}
           {totalSlides > 1 && (
-            <Box sx={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              mt: { xs: 3, sm: 4 }, 
-              gap: { xs: 0.75, sm: 1 }
-            }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, gap: 1 }}>
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <Box
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   sx={{
-                    width: { xs: 10, sm: 12 },
-                    height: { xs: 10, sm: 12 },
+                    width: 12,
+                    height: 12,
                     borderRadius: '50%',
-                    backgroundColor: currentSlide === index ? '#1a7e1aff' : 'grey.300',
+                    backgroundColor: currentSlide === index ? 'primary.main' : 'grey.300',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      backgroundColor: currentSlide === index ? '#1a7e1aff' : 'grey.400',
-                      transform: 'scale(1.1)'
+                      backgroundColor: currentSlide === index ? 'primary.main' : 'grey.400',
                     }
                   }}
                 />

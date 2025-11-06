@@ -165,7 +165,7 @@ const CompanyPresentation = () => {
           }}>
             <Box
               component="img"
-              src="/assets/1c8f362aa04d888a910b9820fc884b42.jpg"
+              src="src/assets/1c8f362aa04d888a910b9820fc884b42.jpg"
               alt="Description de l'image"
               sx={{
                 width: { xs: '100%', md: '400px' },

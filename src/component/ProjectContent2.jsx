@@ -95,7 +95,7 @@ const WhyChooseUs = () => {
                   {/* Image */}
                   <CardMedia
                     component="img"
-                    image="/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg"
+                    image="src/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg"
                     alt="Pourquoi nous choisir"
                     sx={{
                       width: '100%',

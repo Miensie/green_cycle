@@ -1,90 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { 
   Box, 
   Typography, 
   TextField, 
   Button,
-  Snackbar,
-  Alert,
   Divider
 } from '@mui/material';
-import {sendEmail} from '../services/emailService';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const {handleSubmit, register,formState: {errors},reset} = useForm();
+  const onSubmit = (data) => {
+    
+    axios.post("http://localhost:3000/Utilisateurs", data)
+    .then((res)=>{
+      console.log(data,errors);
+      toast.success("Think you for contacting us, we will get a back soon")
+     reset()
+    })
+    .catch((error) =>{
+      toast.error("something went wrong,please try again")
+    })
   };
+  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('Formulaire soumis:', formData);
-    // Ici vous pouvez ajouter votre logique pour envoyer le formulaire
-    setOpenSnackbar(true);
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      message: '' 
-    });
-
-    try {
-      // Créer le contenu de l'email
-      const emailSubject = `Nouveau message de contact de ${formData.name} ${formData.company}`;
-      const emailContent = `
-        Nouveau message de contact:
-        ----------------------------
-        Nom: ${formData.name}
-        ----------------------------
-        Prenom: ${formData.email}
-        ----------------------------
-        Email: ${formData.company}
-        ----------------------------
-        Message: ${formData.message}
-        ----------------------------
-        Veuillez répondre à ce message pour plus de détails.
-      `;
-
-      // Adresse email de l'admin (remplacez par votre adresse)
-      const ADMIN_EMAIL = 'koffimiensie@gmail.com'
-      
-      // Envoyer l'email à l'admin
-      const emailResult = await sendEmail({
-        to: ADMIN_EMAIL,
-        subject: emailSubject,
-        text: emailContent,
-      });
-      
-      if (!emailResult.success) {
-        throw new Error("Échec de l'envoi de l'email: " + emailResult.error);
-      }
-
-      setSuccess("Votre message a été envoyé avec succès ! Veuillez patienter, vous recevrez une réponse dans les plus brefs délais.");
-      
-      // Réinitialiser le formulaire après soumission réussie
-      setFormData({
-        nom: '',
-        prenom: '',
-        email: '',
-        t
-      });
-      setActiveStep(0);
-    } catch (err) {
-      console.error("Erreur lors de l'envoi:", err);
-      setError("Une erreur s'est produite lors de l'envoi de votre message");
-    };
-  };
 
   return (
     <Box sx={{ 
@@ -136,7 +77,7 @@ const ContactPage = () => {
               fontWeight: 'bold',
               fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem', lg: '1.25rem' },
               lineHeight: { xs: 1.5, sm: 1.6 },
-              textAlign: { xs: 'justify', md: 'justify' },
+              textAlign: { xs: 'center', md: 'left' }
             }}
           >
             GreenCycle Liberia INC. is a flagship 
@@ -158,7 +99,7 @@ const ContactPage = () => {
         }}>
           <Box 
             component="form" 
-            onSubmit={handleSubmit} 
+            onSubmit={handleSubmit(onSubmit)} 
             sx={{ 
               display: 'flex', 
               flexDirection: 'column', 
@@ -168,43 +109,49 @@ const ContactPage = () => {
             <TextField
               name="name"
               label="Name"
-              value={formData.name}
-              onChange={handleChange}
               variant="outlined"
               fullWidth
               size="small"
+              {...register("name", {required:"Name is required"})}
             />
             
             <TextField
+              id="filled-basic"
               name="email"
               label="Business email"
-              value={formData.email}
-              onChange={handleChange}
               variant="outlined"
               fullWidth
               size="small"
+              {...register("email" , {required:"Email is required"})}
             />
             
             <TextField
+             id="filled-basic"
               name="company"
               label="Company/organization and job title"
-              value={formData.company}
-              onChange={handleChange}
               variant="outlined"
               fullWidth
               size="small"
+              {...register("company" , {required:"Company/organisation and job title is required"})}
             />
-            
+             <TextField
+              id="filled-basic"
+              name="countrie"
+              label="Countries"
+              variant="outlined"
+              fullWidth
+              size="small"
+              {...register("countrie")}
+            />
             <TextField
               name="message"
               label="Message"
               multiline
               rows={ { xs: 3, sm: 4 } }
               placeholder="Enter your message ..."
-              value={formData.message}
-              onChange={handleChange}
               variant="outlined"
               fullWidth
+              {...register("message")}
             />
             
             <Button 
@@ -232,16 +179,6 @@ const ContactPage = () => {
         my: { xs: 3, sm: 4 },
         display: { xs: 'none', sm: 'block' }
       }} />
-
-      <Snackbar 
-          open={openSnackbar} 
-          autoHideDuration={6000} 
-          onClose={() => setOpenSnackbar(false)}
-      >
-        <Alert onClose={() => setOpenSnackbar(false)} severity="success">
-            Votre message a été envoyé avec succès !
-        </Alert>
-      </Snackbar>
     </Box>
   );
 };

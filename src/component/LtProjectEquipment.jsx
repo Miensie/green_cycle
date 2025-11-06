@@ -21,31 +21,31 @@ const ServicesPresentation = () => {
     {
       title: "Industrial Waste Sorting Center",
       description: "Sorting & Separation: Semi-mechanized sorting hall (conveyors, trommels, manual sorters) separates incoming waste into organics, plastics, and inerts.",
-      image: "/assets/WhatsApp Image 2025-10-08 à 00.58.10_499d008d.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-08 à 00.58.10_499d008d.jpg",
     },
     {
       title: "Energy production unit",
       description: "Production of biogases for cooking + Nutrient-rich digestates to be used as liquid fertilizers for farmers",
-      image: "/assets/WhatsApp Image 2025-10-08 à 01.00.06_9ce40b63.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-08 à 01.00.06_9ce40b63.jpg",
      
     },
     {
       title: "Composting process",
       description: "Raw organic wastes composted aerobically into high-grade fertilizer for farmers",
-      image: "/assets/WhatsApp Image 2025-10-11 à 01.12.39_86e4cf7a.jpg",
-      image: "/assets/WhatsApp Image 2025-10-11 à 01.12.55_b0b4f7b6.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-11 à 01.12.39_86e4cf7a.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-11 à 01.12.55_b0b4f7b6.jpg",
      
     },
     {
       title: "Plastic transformation",
       description: "Production of gasoline from plastic wastes",
-      image: "/assets/WhatsApp Image 2025-10-09 à 04.09.05_5a6766ed.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-09 à 04.09.05_5a6766ed.jpg",
 
     },
     {
       title: "Plastique Upcycling",
       description: "Plastic wastes converted to construction materials",
-      image: "/assets/WhatsApp Image 2025-10-09 à 04.08.44_073d7368.jpg",
+      image: "src/assets/WhatsApp Image 2025-10-09 à 04.08.44_073d7368.jpg",
      
     }
    

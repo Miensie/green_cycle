@@ -220,7 +220,7 @@ const ServicesPresentation = () => {
               flexDirection:'row'}}>
                <Avatar
                  alt='Logo' 
-                 src="/assets/Capture d'écran 2025-09-17 091439.png"
+                 src="src/assets/Capture d'écran 2025-09-17 091439.png"
                   sx={{ 
                    height: { xs: '35px', sm: '45px', md: '50px' }, 
                    width: { xs: '35px', sm: '45px', md: '50px' } 
@@ -309,7 +309,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("/assets/WhatsApp Image 2025-09-05 à 04.59.35_2090401d.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("src/assets/WhatsApp Image 2025-09-05 à 04.59.35_2090401d.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -353,8 +353,8 @@ const ServicesPresentation = () => {
             }}>
               {/* Main Title */}
              <Typography 
-             variant="h1"
-              component="h1" 
+             variant="h2"
+              component="h3" 
               color='#9bed3dff'
               sx={{ fontWeight: 'bold', 
                mb: 5 ,

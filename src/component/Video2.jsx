@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import {Link as RouterLink} from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -18,10 +18,9 @@ import {
   ListItem,
   ListItemText,
   Avatar,
-   useScrollTrigger,
-   Fab,
-   Zoom,
-   Paper
+  useScrollTrigger,
+  Fab,
+  Zoom
 } from '@mui/material';
 import { PlayArrow, East, Menu as MenuIcon } from '@mui/icons-material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -31,10 +30,17 @@ const ImmersiveVideoPresentation = () => {
   const videoRef = useRef(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('md', 'lg'));
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBottomButton, setShowBottomButton] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Chemins des assets - À ADAPTER selon votre structure
+  const VIDEO_PATH = "src/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4"; // Remplacer par votre chemin
+  const IMAGE_PATH = "src/assets/WhatsApp Image 2025-10-07 à 10.29.32_8b888d74.jpg"; // Image de secours pour mobile
+  const LOGO_PATH = "src/assets/Capture d'écran 2025-09-17 091439.png"; // Votre logo
 
   // Gestion du scroll
   useEffect(() => {
@@ -47,8 +53,13 @@ const ImmersiveVideoPresentation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lecture automatique et configuration de la vidéo
+  // Lecture automatique de la vidéo (uniquement sur desktop)
   useEffect(() => {
+    if (isMobile) {
+      setIsVideoLoaded(true); // Pas de vidéo sur mobile
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -73,55 +84,53 @@ const ImmersiveVideoPresentation = () => {
     }
 
     return () => {
-      video.removeEventListener('loadeddata', startVideo);
+      if (video) {
+        video.removeEventListener('loadeddata', startVideo);
+      }
     };
-  }, []);
+  }, [isMobile]);
 
-  // Menu items avec liens
+  // Menu items
   const menuItems = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/activity' },
     { label: 'Services', path: '/solutions' },
     { label: 'Sustainability', path: '/soustainbility' },
-    { label: 'Newproject', path: '/action' },
+    { label: 'New Project', path: '/action' },
   ];
 
-
-  // Composant pour le bouton de retour en haut
-function ScrollTop({ children }) {
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
-
-  const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  // Scroll to top
+  function ScrollTop({ children }) {
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 100,
     });
-  };
 
-  return (
-    <Zoom in={trigger}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{
-          position: 'fixed',
-          bottom: { xs: 80, md: 100 },
-          right: { xs: 20, md: 30 },
-          zIndex: 1000,
-        }}
-      >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
+    const handleClick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
+    return (
+      <Zoom in={trigger}>
+        <Box
+          onClick={handleClick}
+          role="presentation"
+          sx={{
+            position: 'fixed',
+            bottom: { xs: 80, md: 100 },
+            right: { xs: 16, md: 30 },
+            zIndex: 1000,
+          }}
+        >
+          {children}
+        </Box>
+      </Zoom>
+    );
+  }
 
- useEffect(() => {
+  // Gestion du bouton scroll bottom
+  useEffect(() => {
     const checkScrollPosition = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const pageHeight = document.body.scrollHeight;
@@ -134,34 +143,31 @@ function ScrollTop({ children }) {
     return () => window.removeEventListener('scroll', checkScrollPosition);
   }, []);
 
-// Composant pour le bouton de descente en bas
-function ScrollBottom({ children, showBottomButton }) {
-  const handleClick = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
-  };
+  // Scroll to bottom
+  function ScrollBottom({ children, showBottomButton }) {
+    const handleClick = () => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    };
 
-  return (
-    <Zoom in={showBottomButton}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{
-          position: 'fixed',
-          bottom: { xs: 20, md: 30 },
-          right: { xs: 20, md: 30 },
-          zIndex: 1000,
-        }}
-      >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
+    return (
+      <Zoom in={showBottomButton}>
+        <Box
+          onClick={handleClick}
+          role="presentation"
+          sx={{
+            position: 'fixed',
+            bottom: { xs: 20, md: 30 },
+            right: { xs: 16, md: 30 },
+            zIndex: 1000,
+          }}
+        >
+          {children}
+        </Box>
+      </Zoom>
+    );
+  }
 
-  // Navigation mobile
+  // Menu mobile
   const MobileMenu = () => (
     <Drawer
       anchor="right"
@@ -170,40 +176,39 @@ function ScrollBottom({ children, showBottomButton }) {
       sx={{
         '& .MuiDrawer-paper': {
           width: 280,
-          backgroundColor: scrolled ? 'white' : 'transparent',
-          boxShadow: 'none',
+          backgroundColor: 'white',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
         },
       }}
     >
       <List sx={{ mt: 2 }}>
         {menuItems.map((item) => (
-          <ListItem 
+          <ListItem
             key={item.label}
             component="a"
             href={item.path}
             sx={{
               textAlign: 'left',
-              color: scrolled ? 'text.primary' : 'white',
+              color: 'text.primary',
               textDecoration: 'none',
               '&:hover': {
-                backgroundColor: 'transparent',
-                opacity: 0.7,
+                backgroundColor: 'rgba(0,0,0,0.04)',
               },
             }}
             onClick={() => setMobileMenuOpen(false)}
           >
-            <ListItemText 
-              primary={item.label} 
+            <ListItemText
+              primary={item.label}
               sx={{
                 '& .MuiListItemText-primary': {
                   fontWeight: 600,
-                  color: scrolled ? 'text.primary' : 'white',
+                  color: 'text.primary',
                 },
               }}
             />
           </ListItem>
         ))}
-        <ListItem 
+        <ListItem
           component="a"
           href="/contact"
           sx={{
@@ -220,8 +225,8 @@ function ScrollBottom({ children, showBottomButton }) {
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <ListItemText 
-            primary="Contact Us" 
+          <ListItemText
+            primary="Contact Us"
             sx={{
               '& .MuiListItemText-primary': {
                 fontWeight: 600,
@@ -241,45 +246,57 @@ function ScrollBottom({ children, showBottomButton }) {
         minHeight: '100vh',
         overflow: 'hidden',
         background: 'linear-gradient(135deg, #0a2e0a 0%, #1a5a1a 100%)',
-        margin:0,
-        padding:0
+        margin: 0,
+        padding: 0
       }}
     >
       {/* Navbar Responsive */}
       <AppBar
         position="fixed"
+        elevation={scrolled ? 1 : 0}
         sx={{
           backgroundColor: scrolled ? 'white' : 'transparent',
-          boxShadow: scrolled ? 1 : 'none',
           transition: 'all 0.3s ease-in-out',
         }}
       >
-        <Container maxWidth="lg" >
-          <Toolbar sx={{ justifyContent: 'space-between', py: 2 }}>
-            {/* Logo avec lien */}
-           <Box sx={{ display:'flex', 
-                  flexDirection:'row'}}>
-                <Avatar
-                   alt='Logo' 
-                   src="/assets/Capture d'écran 2025-09-17 091439.png"
-                    sx={{ 
-                   height: { xs: '35px', sm: '45px', md: '50px' }, 
-                   width: { xs: '35px', sm: '45px', md: '50px' } 
-                 }}/>
-                <Typography 
-                  variant='h5'
-                  component='h1'
-                 sx={{
-                     fontWeight:'bold', 
-                     color:'#6bd14aff',
-                     fontStyle:'italic',
-                     fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' },
-                     lineHeight: { xs: 1.2, sm: 1.3 }
-                   }}>
-                    GreenCycle <br/>
-                    Liberia INC.
-                </Typography>
+        <Container maxWidth="lg">
+          <Toolbar sx={{ justifyContent: 'space-between', py: 1.5 }}>
+            {/* Logo */}
+            <Box 
+              component="a" 
+              href="/"
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+             
+                textDecoration: 'none',
+                '&:hover': { opacity: 0.9 }
+              }}
+            >
+              <Avatar
+                alt="GreenCycle Logo"
+                src={LOGO_PATH}
+                sx={{
+                  height: { xs: 35, sm: 45, md: 50 },
+                  width: { xs: 35, sm: 45, md: 50 }
+                }}
+              />
+              <Typography
+                variant="h5"
+                component="h1"
+                sx={{
+                  fontWeight: 'bold',
+                  color: '#6bd14aff',
+                  fontStyle: 'italic',
+                  fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' },
+                  lineHeight: 1.2
+                }}
+              >
+                GreenCycle<br />
+                Liberia INC.
+              </Typography>
             </Box>
+
             {/* Menu Desktop */}
             {!isMobile && (
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -318,10 +335,9 @@ function ScrollBottom({ children, showBottomButton }) {
                     '&:hover': {
                       backgroundColor: '#6bd14aff',
                     },
-                    transition: 'all 0.3s ease',
                   }}
                 >
-                  ContactUs
+                  Contact Us
                 </Button>
               </Box>
             )}
@@ -329,10 +345,9 @@ function ScrollBottom({ children, showBottomButton }) {
             {/* Menu Mobile */}
             {isMobile && (
               <IconButton
-                sx={{
-                  color: scrolled ? 'text.primary' : 'white',
-                }}
+                sx={{ color: scrolled ? 'text.primary' : 'white' }}
                 onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
               >
                 <MenuIcon />
               </IconButton>
@@ -343,28 +358,68 @@ function ScrollBottom({ children, showBottomButton }) {
 
       <MobileMenu />
 
-      {/* Vidéo de fond en lecture automatique */}
+      {/* ARRIÈRE-PLAN : Vidéo sur Desktop, Image sur Mobile */}
       <Box
-        component="video"
-        ref={videoRef}
         sx={{
           position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          top: 0,
+          left: 0,
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
-          filter: 'brightness(0.8) contrast(1.1) saturate(1.2)',
-          transition: 'opacity 1s ease-in-out',
-          opacity: isVideoLoaded ? 1 : 0,
+          overflow: 'hidden'
         }}
       >
-        <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
-        <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/webm" />
+        {/* Image de fond pour mobile/tablet */}
+        {(isMobile || isTablet) && (
+          <Box
+            component="img"
+            src={IMAGE_PATH}
+            alt="GreenCycle Liberia"
+            onLoad={() => setImageLoaded(true)}
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: 'brightness(0.85) contrast(1.05)',
+              transition: 'opacity 1s ease-in-out',
+              opacity: imageLoaded ? 1 : 0,
+            }}
+          />
+        )}
+
+        {/* Vidéo de fond pour desktop uniquement */}
+        {!isMobile && !isTablet && (
+          <Box
+            component="video"
+            ref={videoRef}
+            muted
+            playsInline
+            loop
+            preload="auto"
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '100%',
+              minHeight: '100%',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'cover',
+              filter: 'brightness(0.9) contrast(1) saturate(1.1)',
+              transition: 'opacity 1s ease-in-out',
+              opacity: isVideoLoaded ? 1 : 0,
+            }}
+          >
+            <source src={VIDEO_PATH} type="video/mp4" />
+          </Box>
+        )}
       </Box>
 
-      {/* Overlay coloré pour améliorer la lisibilité */}
+      {/* Overlay sombre pour améliorer la lisibilité */}
       <Box
         sx={{
           position: 'absolute',
@@ -374,15 +429,15 @@ function ScrollBottom({ children, showBottomButton }) {
           height: '100%',
           background: `linear-gradient(
             135deg,
-            ${alpha('#0a2e0a', 0.6)} 0%,
-            ${alpha('#1a5a1a', 0.4)} 50%,
-            ${alpha('#0a2e0a', 0.6)} 100%
+            ${alpha('#262c20ff', 0.65)} 0%,
+            ${alpha('#656705ff', 0.45)} 50%,
+            ${alpha('#292724ff', 0.65)} 100%
           )`,
           zIndex: 1,
         }}
       />
 
-      {/* Contenu superposé */}
+      {/* Contenu principal */}
       <Container
         maxWidth="lg"
         sx={{
@@ -391,34 +446,51 @@ function ScrollBottom({ children, showBottomButton }) {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          py: 8,
+          pt: { xs: 10, md: 12 },
+          pb: { xs: 8, md: 10 },
+          px: { xs: 2, sm: 3 }
         }}
       >
-        <Fade in={isVideoLoaded} timeout={1500}>
-          <Box sx={{ maxWidth: { xs: '100%', md: '60%' } }}>
-          
-
-            {/* Sous-titre */}
-            <Slide direction="right" in={isVideoLoaded} timeout={1000}>
+        <Fade in={isVideoLoaded || imageLoaded} timeout={1500}>
+          <Box sx={{ maxWidth: { xs: '100%', md: '65%', lg: '60%' } }}>
+            {/* Titre principal */}
+            <Slide direction="right" in={isVideoLoaded || imageLoaded} timeout={1000}>
               <Typography
-                variant="h4"
+                variant="h2"
                 component="h2"
                 sx={{
-                  color: 'background.paper',
-                  fontWeight: '600',
-                  fontSize: { xs: '1.3rem', sm: '1.6rem', md: '1.8rem' },
-                  mb: 4,
-                  textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
+                  color: 'white',
+                  fontWeight: '700',
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem', lg: '3rem' },
+                  mb: 3,
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.6)',
+                  lineHeight: 1.2
                 }}
               >
-                Integrated Waste Recovery Center of Monrovia.
+                Integrated Waste Recovery Center of Monrovia
               </Typography>
             </Slide>
 
+            {/* Sous-titre */}
+            <Slide direction="right" in={isVideoLoaded || imageLoaded} timeout={1200}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'rgba(255,255,255,0.9)',
+                  fontWeight: '400',
+                  fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' },
+                  mb: 4,
+                  textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
+                  maxWidth: '90%'
+                }}
+              >
+                Transforming waste into value for a sustainable future
+              </Typography>
+            </Slide>
 
             {/* Call-to-action */}
-            <Slide direction="up" in={isVideoLoaded} timeout={1400}>
-              <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+            <Slide direction="up" in={isVideoLoaded || imageLoaded} timeout={1400}>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
                 <Button
                   component={RouterLink}
                   to="/solutions"
@@ -428,9 +500,9 @@ function ScrollBottom({ children, showBottomButton }) {
                   sx={{
                     backgroundColor: '#7fe261ff',
                     color: 'white',
-                    px: 4,
-                    py: 1.5,
-                    fontSize: '1.1rem',
+                    px: { xs: 3, sm: 4 },
+                    py: { xs: 1.25, sm: 1.5 },
+                    fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.1rem' },
                     fontWeight: '600',
                     borderRadius: 2,
                     textTransform: 'none',
@@ -443,7 +515,33 @@ function ScrollBottom({ children, showBottomButton }) {
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  Discover our services.
+                  Discover Our Services
+                </Button>
+
+                <Button
+                  component={RouterLink}
+                  to="/about"
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    borderColor: 'white',
+                    color: 'white',
+                    px: { xs: 3, sm: 4 },
+                    py: { xs: 1.25, sm: 1.5 },
+                    fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.1rem' },
+                    fontWeight: '600',
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    borderWidth: 2,
+                    '&:hover': {
+                      borderColor: '#7fe261ff',
+                      backgroundColor: alpha('#7fe261ff', 0.1),
+                      borderWidth: 2,
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Learn More
                 </Button>
               </Box>
             </Slide>
@@ -452,27 +550,30 @@ function ScrollBottom({ children, showBottomButton }) {
       </Container>
 
       {/* Indicateur de scroll */}
-      <Fade in={isVideoLoaded} timeout={2000}>
+      <Fade in={isVideoLoaded || imageLoaded} timeout={2000}>
         <Box
           sx={{
             position: 'absolute',
-            bottom: 40,
+            bottom: { xs: 30, md: 40 },
             left: '50%',
             transform: 'translateX(-50%)',
             textAlign: 'center',
             color: 'white',
             zIndex: 3,
+            display: { xs: 'none', sm: 'block' }
           }}
         >
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              mb: 2, 
+          <Typography
+            variant="body2"
+            sx={{
+              mb: 2,
               opacity: 0.8,
-              textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+              textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+              textTransform: 'uppercase',
+              letterSpacing: 1
             }}
           >
-            explore more.
+            Explore More
           </Typography>
           <Box
             sx={{
@@ -483,11 +584,11 @@ function ScrollBottom({ children, showBottomButton }) {
               borderRadius: 1,
               animation: 'scrollBounce 2s infinite ease-in-out',
               '@keyframes scrollBounce': {
-                '0%, 100%': { 
+                '0%, 100%': {
                   transform: 'translateY(0)',
                   opacity: 1
                 },
-                '50%': { 
+                '50%': {
                   transform: 'translateY(-10px)',
                   opacity: 0.7
                 },
@@ -497,34 +598,16 @@ function ScrollBottom({ children, showBottomButton }) {
         </Box>
       </Fade>
 
-      {/* Indicateur de lecture automatique (discret) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 20,
-          right: 20,
-          zIndex: 3,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 1,
-          color: 'white',
-          opacity: 0.6,
-          fontSize: '0.8rem',
-        }}
-      >
-        <PlayArrow sx={{ fontSize: 16 }} />
-        <Typography variant="caption"></Typography>
-      </Box>
-
+      {/* Boutons de navigation scroll */}
       <ScrollTop>
         <Fab
           color="primary"
           size="medium"
           aria-label="scroll back to top"
           sx={{
-            backgroundColor: 'green',
+            backgroundColor: '#41b156ff',
             '&:hover': {
-              backgroundColor: 'darkgreen',
+              backgroundColor: '#2e7d32',
             },
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
           }}

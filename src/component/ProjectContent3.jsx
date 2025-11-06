@@ -134,7 +134,7 @@ const CompanyPresentation = () => {
           }}>
             <Box
               component="img"
-              src="/assets/6d3c784524a2a57821cfcf900b1d980e.jpg" // Remplacez par votre image
+              src="src/assets/6d3c784524a2a57821cfcf900b1d980e.jpg" // Remplacez par votre image
               alt="Waste Segregation and Collection"
               sx={{
                 width: { xs: '100%', md: '400px' },

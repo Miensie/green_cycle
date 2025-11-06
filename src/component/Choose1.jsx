@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       title: "Advanced Technical Expertise",
-      description: "Our team of experts brings over 3 years of experience in biogas solutions and integrated waste management systems."
+      description: "Our team of experts brings over 15 years of experience in biogas solutions and integrated waste management systems."
     },
     {
       title: "Sustainable Solutions",
@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
                   {/* Image */}
                   <CardMedia
                     component="img"
-                    image="/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
+                    image="src/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
                     alt="Pourquoi nous choisir"
                     sx={{
                       width: '100%',
