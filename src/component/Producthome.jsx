@@ -228,7 +228,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("src/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-09-01 à 03.05.21_868a39aa.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

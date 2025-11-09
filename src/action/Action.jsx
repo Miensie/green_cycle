@@ -232,7 +232,7 @@ const ServicesPresentation = () => {
             }}>
                 <Avatar
                  alt='Logo' 
-                 src="src/assets/Capture d'écran 2025-09-17 091439.png"
+                 src="/assets/Capture d'écran 2025-09-17 091439.png"
                  sx={{ 
                    height: { xs: '35px', sm: '45px', md: '50px' }, 
                    width: { xs: '35px', sm: '45px', md: '50px' } 
@@ -333,7 +333,7 @@ const ServicesPresentation = () => {
           minHeight: { xs: '70vh', sm: '80vh', md: '100vh' },
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("src/assets/WhatsApp Image 2025-09-05 à 04.59.34_3ef60bcb.jpg")',
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-09-05 à 04.59.34_3ef60bcb.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

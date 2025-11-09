@@ -38,9 +38,9 @@ const ImmersiveVideoPresentation = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   // Chemins des assets - À ADAPTER selon votre structure
-  const VIDEO_PATH = "src/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4"; // Remplacer par votre chemin
-  const IMAGE_PATH = "src/assets/WhatsApp Image 2025-10-07 à 10.29.32_8b888d74.jpg"; // Image de secours pour mobile
-  const LOGO_PATH = "src/assets/Capture d'écran 2025-09-17 091439.png"; // Votre logo
+  const VIDEO_PATH = "/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4"; // Remplacer par votre chemin
+  const IMAGE_PATH = "/assets/WhatsApp Image 2025-10-07 à 10.29.32_8b888d74.jpg"; // Image de secours pour mobile
+  const LOGO_PATH = "/assets/Capture d'écran 2025-09-17 091439.png"; // Votre logo
 
   // Gestion du scroll
   useEffect(() => {

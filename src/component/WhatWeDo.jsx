@@ -55,7 +55,7 @@ const CertificationsDashboard = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/545033648_122108511362992913_5975337630202281550_n.jpg")', // Remplacez par le chemin de votre image
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/545033648_122108511362992913_5975337630202281550_n.jpg")', // Remplacez par le chemin de votre image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

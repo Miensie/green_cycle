@@ -21,37 +21,37 @@ const ServicesPresentation = () => {
     {
       title: "Waste Collection & Sorting",
       description: "A semi-mechanized sorting center ensures efficient separation of organic, plastic, and inert materials, diverting tons of waste from open dumping and landfills.",
-      image: "src/assets/b1301743216ed33be27bb938b462159e.jpg",
+      image: "/assets/b1301743216ed33be27bb938b462159e.jpg",
       buttonText: "Find out more"
     },
     {
       title: "Biogas & Composting Solutions",
       description: "We design, operate, and manage waste-to-energy and composting platforms that supply renewable energy and eco-friendly fertilizers to households, farmers, and institutions.",
-      image: "src/assets/WhatsApp Image 2025-10-09 à 04.08.27_52ae1132.jpg",
+      image: "/assets/WhatsApp Image 2025-10-09 à 04.08.27_52ae1132.jpg",
       buttonText: "Find out more"
     },
     {
       title: "Community Awareness & Outreach",
       description: "From schools to marketplaces, we lead education campaigns on waste segregation, environmental health, and climate-smart practices. Our goal is to change mindsets and promote community ownership.",
-      image: "src/assets/feeb75183886b4e710ea2990a3131b38.jpg",
+      image: "/assets/feeb75183886b4e710ea2990a3131b38.jpg",
       buttonText: "Find out more"
     },
     {
       title: "Plastic Recycling & Upcycling",
       description: "Our modern recycling workshop turns discarded plastics into valuable materials. We also support artisans and entrepreneurs in developing new plastic-based products.",
-      image: "src/assets/WhatsApp Image 2025-10-09 à 04.08.44_073d7368.jpg",
+      image: "/assets/WhatsApp Image 2025-10-09 à 04.08.44_073d7368.jpg",
       buttonText: "Find out more"
     },
     {
       title: "Training & Capacity Building",
       description: "We empower local communities especially women and youth through training in waste management, recycling techniques, and green entrepreneurship. Over 300 beneficiaries will gain skills to build sustainable livelihoods.",
-      image: "src/assets/4251d625d62911d0328d5be1d2db90a4.jpg",
+      image: "/assets/4251d625d62911d0328d5be1d2db90a4.jpg",
       buttonText: "Find out more"
     },
     {
       title: "Partnership & Advisory Support",
       description: "We collaborate with government institutions, NGOs, and private businesses to provide technical expertise, research opportunities, and co-managed solutions for sustainable waste management..",
-      image: "src/assets/WhatsApp Image 2025-10-09 à 04.09.38_75f09046.jpg",
+      image: "/assets/WhatsApp Image 2025-10-09 à 04.09.38_75f09046.jpg",
       buttonText: "Find out more"
     }
   ];

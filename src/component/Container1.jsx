@@ -9,7 +9,7 @@ const SustainabilitySection = () => {
     {
       title: "Reuse",
       description: "At GreenCycle Liberia, we believe in giving materials a second life. Our reuse initiative focuses on collecting, refurbishing, and redistributing items that still have functional value. From furniture to electronics, we ensure that reusable products find new homes instead of ending up in landfills.",
-      image: "src/assets/4251d625d62911d0328d5be1d2db90a4.jpg", // Remplacez par votre image
+      image: "/assets/4251d625d62911d0328d5be1d2db90a4.jpg", // Remplacez par votre image
       bgColor: '#ffffff', // Vert fluo
       textSide: 'right',
       textColor: '#000'
@@ -17,7 +17,7 @@ const SustainabilitySection = () => {
     {
       title: "Recycle",
       description: "Our advanced recycling program transforms waste materials into valuable resources. We process plastics, glass, paper, and metals through state-of-the-art facilities, creating raw materials for new products. This closed-loop system reduces environmental impact and promotes circular economy principles in Liberia.",
-      image: "src/assets/542723233_122106111518992913_6057981429094286876_n.jpg", // Remplacez par votre image
+      image: "/assets/542723233_122106111518992913_6057981429094286876_n.jpg", // Remplacez par votre image
       bgColor: '#ffffff', // Gris
       textSide: 'left',
       textColor: '#333333'
@@ -25,7 +25,7 @@ const SustainabilitySection = () => {
     {
       title: "Recovery",
       description: "Through energy and material recovery, we extract maximum value from waste streams. Our recovery processes convert non-recyclable materials into clean energy and recover valuable components for industrial use. This innovative approach minimizes landfill dependency and contributes to sustainable energy production.",
-      image: "src/assets/eeda0288170b9fca47b7ce6fa4124a5c.jpg", // Remplacez par votre image
+      image: "/assets/eeda0288170b9fca47b7ce6fa4124a5c.jpg", // Remplacez par votre image
       bgColor: '#ffffff', // Blanc
       textSide: 'right',
       textColor: '#333333'

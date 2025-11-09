@@ -41,9 +41,9 @@ const ServicesPresentation = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   // Chemins des assets - À ADAPTER selon votre structure
-  const DESKTOP_IMAGE = "src/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg";
-  const MOBILE_IMAGE = "src/assets/etyuuyrreryt.jpg"; // Version plus petite
-  const LOGO_PATH = "src/assets/Capture d'écran 2025-09-17 091439.png";
+  const DESKTOP_IMAGE = "/assets/WhatsApp Image 2025-10-07 à 10.29.39_0f8c88cb.jpg";
+  const MOBILE_IMAGE = "/assets/etyuuyrreryt.jpg"; // Version plus petite
+  const LOGO_PATH = "/assets/Capture d'écran 2025-09-17 091439.png";
 
   // Sélection de l'image selon l'écran
   const heroImage = isMobile ? MOBILE_IMAGE : DESKTOP_IMAGE;

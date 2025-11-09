@@ -95,7 +95,7 @@ const VideoPresentation = () => {
           poster=""
           onEnded={() => setIsPlaying(false)}
         >
-          <source src="src/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
+          <source src="/assets/WhatsApp Vidéo 2025-10-17 à 15.28.32_5e790baf.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
         

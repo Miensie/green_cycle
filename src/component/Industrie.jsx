@@ -16,19 +16,19 @@ const IndustriesWeServe = () => {
   const industries = [
     {
       name: "Energy & Biofuels Services",
-      image: "src/assets/a41730a455051f727fd1915a1a91128e.jpg" // À remplacer
+      image: "/assets/a41730a455051f727fd1915a1a91128e.jpg" // À remplacer
     },
     {
       name: "Water Treatment", 
-      image: "src/assets/cbafaa4bf8c63619160c1a72f2b4a531.jpg" // À remplacer
+      image: "/assets/cbafaa4bf8c63619160c1a72f2b4a531.jpg" // À remplacer
     },
     {
       name: "Environmental Services",
-      image: "src/assets/a3f89a1f199f1a8b8785e8f221b1c1d2.jpg" // À remplacer
+      image: "/assets/a3f89a1f199f1a8b8785e8f221b1c1d2.jpg" // À remplacer
     },
     {
       name: "Sustainable Materials",
-      image: "src/assets/e06dd1dd8c516f236849758f59c7d336.jpg" // À remplacer
+      image: "/assets/e06dd1dd8c516f236849758f59c7d336.jpg" // À remplacer
     }
   ];
 

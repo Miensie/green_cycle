@@ -4,27 +4,27 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 export default function Example() {
   const logos = [
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.13.52_816d9fcb.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.13.52_816d9fcb.jpg",
       alt: ""
     },
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.14.11_af954241.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.14.11_af954241.jpg",
       alt: ""
     },
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.14.30_6a5e8478.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.14.30_6a5e8478.jpg",
       alt: ""
     },
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.14.47_7613d278.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.14.47_7613d278.jpg",
       alt: ""
     },
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.15.06_93f245a6.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.15.06_93f245a6.jpg",
       alt: ""
     },
     {
-      src: "src/assets/WhatsApp Image 2025-10-09 à 04.15.21_d8b68c11.jpg",
+      src: "/assets/WhatsApp Image 2025-10-09 à 04.15.21_d8b68c11.jpg",
       alt: ""
     }
   ];

@@ -13,10 +13,10 @@ import {
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 // Import direct des images (solution recommandée)
-import image1 from '../assets/WhatsApp Image 2025-10-07 à 10.29.34_1b31c8f6.jpg';
-import image2 from '../assets/WhatsApp Image 2025-10-07 à 10.29.28_275756d3.jpg';
-import image3 from '../assets/WhatsApp Image 2025-10-07 à 10.29.28_19b54914.jpg';
-import image4 from '../assets/WhatsApp Image 2025-10-07 à 10.29.37_3daed440.jpg';
+import image1 from '/assets/WhatsApp Image 2025-10-07 à 10.29.34_1b31c8f6.jpg';
+import image2 from '/assets/WhatsApp Image 2025-10-07 à 10.29.28_275756d3.jpg';
+import image3 from '/assets/WhatsApp Image 2025-10-07 à 10.29.28_19b54914.jpg';
+import image4 from '/assets/WhatsApp Image 2025-10-07 à 10.29.37_3daed440.jpg';
 
 const Apropos = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

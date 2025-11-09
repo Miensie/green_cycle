@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
                   {/* Image */}
                   <CardMedia
                     component="img"
-                    image="src/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
+                    image="/assets/49b566ae50cb6ab0ca4106bf54518c4f.jpg"
                     alt="Pourquoi nous choisir"
                     sx={{
                       width: '100%',

@@ -79,7 +79,7 @@ export default function Example() {
       {/* Image */}
           <Box
            component="img"
-            src="src/assets/14b4b575555fe1658e16d6b858550eb3.jpg" // Remplacez par votre image
+            src="/assets/14b4b575555fe1658e16d6b858550eb3.jpg" // Remplacez par votre image
            alt="Le Biogaz en Afrique"
             sx={{
           width: '80px',

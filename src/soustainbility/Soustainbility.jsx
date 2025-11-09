@@ -311,7 +311,7 @@ const ServicesPresentation = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: 'url("src/assets/WhatsApp Image 2025-10-07 à 10.29.37_3daed440.jpg")', // Remplacez par votre image
+          backgroundImage: 'url("/assets/WhatsApp Image 2025-10-07 à 10.29.37_3daed440.jpg")', // Remplacez par votre image
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

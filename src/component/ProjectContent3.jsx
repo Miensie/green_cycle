@@ -134,7 +134,7 @@ const CompanyPresentation = () => {
           }}>
             <Box
               component="img"
-              src="src/assets/6d3c784524a2a57821cfcf900b1d980e.jpg" // Remplacez par votre image
+              src="/assets/6d3c784524a2a57821cfcf900b1d980e.jpg" // Remplacez par votre image
               alt="Waste Segregation and Collection"
               sx={{
                 width: { xs: '100%', md: '400px' },
@@ -266,7 +266,7 @@ const CompanyPresentation = () => {
           }}>
             <Box
               component="img"
-              src="src/assets/090a4cecbd04e3d86931bba20b20cf9b.jpg" // Remplacez par votre image
+              src="/assets/090a4cecbd04e3d86931bba20b20cf9b.jpg" // Remplacez par votre image
               alt="Waste Education and Youth Mobilization"
               sx={{
                 width: { xs: '100%', md: '400px' },
