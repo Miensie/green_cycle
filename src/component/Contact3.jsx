@@ -7,22 +7,90 @@ import {
   Button,
   Divider
 } from '@mui/material';
-import toast from 'react-hot-toast';
-import axios from 'axios';
+import { useState } from 'react';
+import sendEmail from '../services/emailService';
 
 const ContactPage = () => {
-  const {handleSubmit, register,formState: {errors},reset} = useForm();
-  const onSubmit = (data) => {
-    
-    axios.post("http://localhost:3000/Utilisateurs", data)
-    .then((res)=>{
-      console.log(data,errors);
-      toast.success("Think you for contacting us, we will get a back soon")
-     reset()
-    })
-    .catch((error) =>{
-      toast.error("something went wrong,please try again")
-    })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    countrie: '',
+    message: ''
+  });
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+  const [activeStep, setActiveStep] = useState(0);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('Formulaire soumis:', formData);
+    // Ici vous pouvez ajouter votre logique pour envoyer le formulaire
+    setOpenSnackbar(true);
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      countrie: '',
+      message: ''
+    });
+
+    try {
+      // Créer le contenu de l'email
+      const emailSubject = `Nouveau message de contact de ${formData.name} ${formData.company}`;
+      const emailContent = `
+        Nouveau message de contact:
+        ----------------------------
+        Nom: ${formData.name}
+        ----------------------------
+        Email: ${formData.email}
+        ----------------------------
+        Company/Organization: ${formData.company}
+        ----------------------------
+        Countries: ${formData.countrie}
+        ----------------------------
+        Message: ${formData.message}
+        ----------------------------
+        Veuillez répondre à ce message pour plus de détails.
+      `;
+
+      // Adresse email de l'admin (remplacez par votre adresse)
+      const ADMIN_EMAIL = 'koffimiensie@gmail.com'
+      
+      // Envoyer l'email à l'admin
+      const emailResult = await sendEmail({
+        to: ADMIN_EMAIL,
+        subject: emailSubject,
+        text: emailContent,
+      });
+      
+      if (!emailResult.success) {
+        throw new Error("Échec de l'envoi de l'email: " + emailResult.error);
+      }
+
+      setSuccess("Votre message a été envoyé avec succès ! Veuillez patienter, vous recevrez une réponse dans les plus brefs délais.");
+      
+      // Réinitialiser le formulaire après soumission réussie
+      setFormData({
+        nom: '',
+        prenom: '',
+        email: '',
+        t
+      });
+      setActiveStep(0);
+    } catch (err) {
+      console.error("Erreur lors de l'envoi:", err);
+      setError("Une erreur s'est produite lors de l'envoi de votre message");
+    };
   };
   
 
@@ -112,7 +180,9 @@ const ContactPage = () => {
               variant="outlined"
               fullWidth
               size="small"
-              {...register("name", {required:"Name is required"})}
+              value={formData.name}
+              onChange={handleChange}
+              {...register("name" , {required:"Name is required"})}
             />
             
             <TextField
@@ -122,6 +192,8 @@ const ContactPage = () => {
               variant="outlined"
               fullWidth
               size="small"
+              value={formData.email}
+              onChange={handleChange}
               {...register("email" , {required:"Email is required"})}
             />
             
@@ -132,6 +204,8 @@ const ContactPage = () => {
               variant="outlined"
               fullWidth
               size="small"
+              value={formData.company}
+              onChange={handleChange}
               {...register("company" , {required:"Company/organisation and job title is required"})}
             />
              <TextField
@@ -141,6 +215,8 @@ const ContactPage = () => {
               variant="outlined"
               fullWidth
               size="small"
+              value={formData.countrie}
+              onChange={handleChange}
               {...register("countrie")}
             />
             <TextField
@@ -151,6 +227,9 @@ const ContactPage = () => {
               placeholder="Enter your message ..."
               variant="outlined"
               fullWidth
+              size="small"
+              value={formData.message}
+              onChange={handleChange}
               {...register("message")}
             />
             
@@ -179,6 +258,15 @@ const ContactPage = () => {
         my: { xs: 3, sm: 4 },
         display: { xs: 'none', sm: 'block' }
       }} />
+      <Snackbar 
+          open={openSnackbar} 
+          autoHideDuration={6000} 
+          onClose={() => setOpenSnackbar(false)}
+        >
+          <Alert onClose={() => setOpenSnackbar(false)} severity="success">
+            Votre message a été envoyé avec succès !
+          </Alert>
+      </Snackbar>
     </Box>
   );
 };
