@@ -222,7 +222,7 @@ const ServicesPresentation = () => {
                 flexDirection:'row'}}>
                 <Avatar
                  alt='Logo' 
-                 src="src/assets/Capture d'écran 2025-09-17 091439.png"
+                 src="/assets/Capture d'écran 2025-09-17 091439.png"
                  sx={{ 
                    height: { xs: '35px', sm: '45px', md: '50px' }, 
                    width: { xs: '35px', sm: '45px', md: '50px' } 
