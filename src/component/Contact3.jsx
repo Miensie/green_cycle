@@ -5,10 +5,12 @@ import {
   Typography, 
   TextField, 
   Button,
-  Divider
+  Divider,
+  Snackbar,
+  Alert
 } from '@mui/material';
 import { useState } from 'react';
-import sendEmail from '../services/emailService';
+import {sendEmail} from '../services/emailService';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +66,7 @@ const ContactPage = () => {
       `;
 
       // Adresse email de l'admin (remplacez par votre adresse)
-      const ADMIN_EMAIL = 'koffimiensie@gmail.com'
+      const ADMIN_EMAIL = 'greencycleliberia@gmail.com'
       
       // Envoyer l'email à l'admin
       const emailResult = await sendEmail({
@@ -81,10 +83,11 @@ const ContactPage = () => {
       
       // Réinitialiser le formulaire après soumission réussie
       setFormData({
-        nom: '',
-        prenom: '',
+        name: '',
         email: '',
-        t
+        company: '',
+        countrie: '',
+        message: ''
       });
       setActiveStep(0);
     } catch (err) {
@@ -167,7 +170,7 @@ const ContactPage = () => {
         }}>
           <Box 
             component="form" 
-            onSubmit={handleSubmit(onSubmit)} 
+            onSubmit={handleSubmit} 
             sx={{ 
               display: 'flex', 
               flexDirection: 'column', 
@@ -182,7 +185,7 @@ const ContactPage = () => {
               size="small"
               value={formData.name}
               onChange={handleChange}
-              {...register("name" , {required:"Name is required"})}
+              required
             />
             
             <TextField
@@ -194,7 +197,7 @@ const ContactPage = () => {
               size="small"
               value={formData.email}
               onChange={handleChange}
-              {...register("email" , {required:"Email is required"})}
+              required
             />
             
             <TextField
@@ -206,7 +209,7 @@ const ContactPage = () => {
               size="small"
               value={formData.company}
               onChange={handleChange}
-              {...register("company" , {required:"Company/organisation and job title is required"})}
+              required
             />
              <TextField
               id="filled-basic"
@@ -217,7 +220,7 @@ const ContactPage = () => {
               size="small"
               value={formData.countrie}
               onChange={handleChange}
-              {...register("countrie")}
+              required
             />
             <TextField
               name="message"
@@ -230,7 +233,7 @@ const ContactPage = () => {
               size="small"
               value={formData.message}
               onChange={handleChange}
-              {...register("message")}
+              required
             />
             
             <Button 
